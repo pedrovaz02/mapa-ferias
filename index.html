@@ -42,6 +42,9 @@ table{border-collapse:collapse}
 .workers th{font-size:12px;color:var(--muted);text-align:left;font-weight:600;text-transform:uppercase;letter-spacing:.4px;padding:8px 6px;border-bottom:1px solid var(--line)}
 .workers td{padding:10px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .workers td input{padding:7px 9px}
+.folgas{display:flex;gap:3px;align-items:center;margin-top:6px;font-size:12px;color:var(--muted)}
+.fd{width:24px;height:24px;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--muted);font:600 11px Inter,sans-serif;cursor:pointer;padding:0}
+.fd.on{background:var(--muted);border-color:var(--muted);color:#fff}
 .addp{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
 .addp input{width:150px}
 .status{font-size:13px;font-weight:600}
@@ -104,7 +107,7 @@ dialog p{color:var(--muted);margin-bottom:12px}
 <header>
   <div>
     <h1>Mapa de Férias <span id="hYear">2027</span></h1>
-    <p class="lead">Escolhe o concelho, escreve quem trabalha contigo e marca as férias. Os dias úteis, os feriados municipais e as regras do Código do Trabalho contam-se sozinhos. Imprimes e afixas.</p>
+    <p class="lead">Escolhe o concelho, escreve quem trabalha contigo e marca as férias. Os dias úteis, os feriados municipais e as regras do Código do Trabalho contam-se sozinhos, também para quem trabalha ao fim de semana. Imprimes e afixas.</p>
   </div>
   <div class="toolbar no-print">
     <button class="btn gold" id="bPrint">Imprimir / PDF</button>
@@ -153,15 +156,15 @@ dialog p{color:var(--muted);margin-bottom:12px}
       </div>
     </div>
     <table class="workers">
-      <thead><tr><th style="width:24%">Nome</th><th style="width:9%">Direito</th><th>Períodos de férias</th><th style="width:9%">Marcados</th><th style="width:20%">Estado</th><th></th></tr></thead>
+      <thead><tr><th style="width:24%">Nome e folgas</th><th style="width:9%">Direito</th><th>Períodos de férias</th><th style="width:9%">Marcados</th><th style="width:20%">Estado</th><th></th></tr></thead>
       <tbody id="wBody"></tbody>
     </table>
   </section>
 
   <section class="card">
     <h2>Calendário</h2>
-    <p style="color:var(--muted);font-size:14px">Clica num dia útil para marcar ou desmarcar férias.</p>
-    <div class="legend"><span><i style="background:var(--vac)"></i>Férias</span><span><i style="background:var(--hol)"></i>Feriado</span><span><i style="background:var(--we)"></i>Fim de semana</span><span><i style="background:var(--bad)"></i>Ausentes acima do limite</span></div>
+    <p style="color:var(--muted);font-size:14px">Clica num dia de trabalho para marcar ou desmarcar férias.</p>
+    <div class="legend"><span><i style="background:var(--vac)"></i>Férias</span><span><i style="background:var(--hol)"></i>Feriado</span><span><i style="background:var(--we)"></i>Folga ou fim de semana</span><span><i style="background:var(--bad)"></i>Ausentes acima do limite</span></div>
     <div class="alerts" id="alerts"></div>
     <div id="cal"></div>
   </section>
@@ -183,6 +186,8 @@ dialog p{color:var(--muted);margin-bottom:12px}
     <p>Até 15 de abril de cada ano. O mapa fica afixado nos locais de trabalho entre essa data e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</p>
     <h3>Quantos dias de férias tem cada trabalhador?</h3>
     <p>Pelo menos 22 dias úteis por ano (art. 238.º). Dias úteis são de segunda a sexta, sem contar feriados. No ano de admissão as regras são outras: ajusta o "Direito" dessa pessoa.</p>
+    <h3>E quem trabalha ao fim de semana?</h3>
+    <p>Marca as folgas de cada pessoa nos botões D S T Q Q S S. Se alguém folga num dia útil, o sábado e o domingo contam como dias de férias em vez dessa folga (art. 238.º, n.º 3). Quem folga só um dia útil por semana conta o sábado em vez dele, para a semana de férias valer 5 dias. Com folgas rotativas, marca as mais habituais.</p>
     <h3>As férias podem ser repartidas?</h3>
     <p>Sim, por acordo, desde que haja pelo menos um período de 10 dias úteis seguidos (art. 241.º, n.º 8). A app avisa quando isso falta.</p>
     <h3>E se não houver acordo?</h3>
@@ -227,6 +232,8 @@ const CFG = {
   SITE: "pedrovaz02.github.io/mapa-ferias"
 };
 const KEY = "mapaFerias.v1";
+const FOLGAS_PADRAO = [6, 0];  // sábado e domingo
+const folgasOf = w => Array.isArray(w.folgas) ? w.folgas : FOLGAS_PADRAO;
 const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
 const DSEM = ["D","S","T","Q","Q","S","S"];
 const $ = s => document.querySelector(s);
@@ -274,10 +281,10 @@ function newEmp(nome = "") {
 function demo() {
   const e = newEmp("Café Central, Lda. (exemplo)");
   Object.assign(e, { concelho: "Braga", maxAus: 1 });
-  const w = (nome, ranges) => ({ id: uid(), nome, direito: 22, dias: ranges, _ranges: true });
+  const w = (nome, ranges, folgas = FOLGAS_PADRAO) => ({ id: uid(), nome, direito: 22, folgas, dias: ranges, _ranges: true });
   e.trab = [w("Ana Martins", [["2027-07-05","2027-07-16"],["2027-12-20","2027-12-30"]]),
             w("Bruno Costa", [["2027-08-02","2027-08-13"],["2027-04-26","2027-04-30"]]),
-            w("Carla Sousa", [["2027-08-09","2027-08-20"]])];
+            w("Carla Sousa", [["2027-08-09","2027-08-24"]], [2, 3])];
   return { emps: [e], cur: e.id, demo: true, lic: null };
 }
 let S;
@@ -289,11 +296,18 @@ const tier = () => S.lic && S.lic.ok ? S.lic.tier : "gratis";
 const maxWorkers = () => tier() === "gratis" ? CFG.FREE_WORKERS : Infinity;
 const maxEmps = () => tier() === "contabilista" ? Infinity : 1;
 
-// dias úteis e períodos
+// Dias que contam como férias (art. 238.º): segunda a sexta sem feriados. Quem folga num dia útil
+// conta, em vez dele, o sábado e depois o domingo (n.º 3), para a semana de férias valer sempre 5 dias.
+function countedWeekdays(folgas) {
+  const set = new Set([1, 2, 3, 4, 5].filter(d => !folgas.includes(d)));
+  let k = 5 - set.size;
+  for (const d of [6, 0]) if (k > 0 && !folgas.includes(d)) { set.add(d); k--; }
+  return set;
+}
 function ctx(e) {
   const hol = holidays(e);
-  const isWork = s => { const w = dow(s); return w !== 0 && w !== 6 && !hol.has(s); };
-  return { hol, isWork };
+  const forW = w => { const s = countedWeekdays(folgasOf(w)); return d => s.has(dow(d)) && !hol.has(d); };
+  return { hol, forW };
 }
 function expandRange(a, b, isWork) {
   const out = [];
@@ -302,9 +316,9 @@ function expandRange(a, b, isWork) {
   for (let x = a; x <= b; x = addDays(x, 1)) if (isWork(x)) out.push(x);
   return out;
 }
-function normalize(e) {  // os dados de exemplo vêm em intervalos; passam a lista de dias úteis
-  const { isWork } = ctx(e);
-  e.trab.forEach(w => { if (w._ranges) { w.dias = w.dias.flatMap(([a, b]) => expandRange(a, b, isWork)); delete w._ranges; } });
+function normalize(e) {  // os dados de exemplo vêm em intervalos; passam a lista de dias que contam
+  const { forW } = ctx(e);
+  e.trab.forEach(w => { if (w._ranges) { w.dias = w.dias.flatMap(([a, b]) => expandRange(a, b, forW(w))); delete w._ranges; } });
 }
 S.emps.forEach(normalize);
 function daysOf(w, e, isWork) {
@@ -364,13 +378,17 @@ function renderHolidays() {
   else if (c && !(c[4][e.ano] || []).length) html = `<span class="chip">Feriado municipal de ${esc(c[0])} por confirmar: pergunta à câmara</span>` + html;
   $("#holChips").innerHTML = html;
 }
+const DIAS = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+const SEMANA = [1, 2, 3, 4, 5, 6, 0];
+const folgasTxt = w => SEMANA.filter(d => folgasOf(w).includes(d)).map(d => DIAS[d].slice(0, 3) + ".").join(", ") || "sem folgas";
 function renderWorkers() {
-  const e = emp(), { isWork } = ctx(e);
+  const e = emp(), { forW } = ctx(e);
   $("#wBody").innerHTML = e.trab.map(w => {
-    const r = check(w, e, isWork);
+    const r = check(w, e, forW(w)), fol = folgasOf(w);
+    const folgas = SEMANA.map(d => `<button class="fd${fol.includes(d) ? " on" : ""}" data-folga="${w.id}|${d}" title="${fol.includes(d) ? "Folga à " : "Trabalha à "}${DIAS[d]}" aria-pressed="${fol.includes(d)}">${DSEM[d]}</button>`).join("");
     const chips = r.per.map(p => `<span class="chip vac">${fmt(p.ini)}${p.ini !== p.fim ? " – " + fmt(p.fim) : ""} · ${p.n} d<button title="Apagar período" data-delp="${w.id}|${p.ini}|${p.fim}">×</button></span>`).join("") || `<span style="color:var(--muted);font-size:13px">Sem férias marcadas</span>`;
     return `<tr data-w="${w.id}">
-      <td class="wide"><input value="${esc(w.nome)}" data-f="nome" placeholder="Nome"></td>
+      <td class="wide"><input value="${esc(w.nome)}" data-f="nome" placeholder="Nome"><div class="folgas">Folgas ${folgas}</div></td>
       <td><input type="number" min="0" max="40" value="${esc(w.direito)}" data-f="direito" aria-label="Dias de direito"></td>
       <td class="wide"><div class="chips" style="margin:0">${chips}</div>
         <div class="addp"><input type="date" data-a min="${e.ano}-01-01" max="${e.ano}-12-31" aria-label="Início"><input type="date" data-b min="${e.ano}-01-01" max="${e.ano}-12-31" aria-label="Fim"><button class="btn small light" data-addp="${w.id}">Marcar período</button></div></td>
@@ -380,8 +398,8 @@ function renderWorkers() {
   }).join("") || `<tr><td colspan="6" style="color:var(--muted)">Ainda não há trabalhadores. Clica em "+ Trabalhador".</td></tr>`;
 }
 function calendarHTML(e, interactive) {
-  const { hol, isWork } = ctx(e), y = e.ano;
-  const sets = e.trab.map(w => new Set(daysOf(w, e, isWork)));
+  const { hol, forW } = ctx(e), y = e.ano;
+  const fns = e.trab.map(forW), sets = e.trab.map((w, i) => new Set(daysOf(w, e, fns[i])));
   let out = "";
   for (let m = 0; m < 12; m++) {
     const n = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
@@ -393,19 +411,20 @@ function calendarHTML(e, interactive) {
       ds.map(d => { const over = e.maxAus > 0 && count(d) > e.maxAus; return `<th class="${cls(d)}${over ? " over" : ""}" title="${esc(hol.get(d) || "")}${over ? " · " + count(d) + " ausentes" : ""}">${DSEM[dow(d)]}<br>${Number(d.slice(8))}</th>`; }).join("") +
       pad + `</tr></thead><tbody>` +
       e.trab.map((w, i) => `<tr><td class="name" title="${esc(w.nome)}">${esc(w.nome || "Sem nome")}</td>` + ds.map(d => {
-        const c = sets[i].has(d) ? "vac" : cls(d), work = interactive && isWork(d) ? " work" : "";
+        const counts = fns[i](d), c = sets[i].has(d) ? "vac" : hol.has(d) ? "hol" : counts ? "" : "we";
+        const work = interactive && counts ? " work" : "";
         return `<td class="${c}${work}"${work ? ` data-day="${w.id}|${d}"` : ""}></td>`;
       }).join("") + pad.replace(/th>/g, "td>") + `</tr>`).join("") + `</tbody></table></div></div>`;
   }
   return out;
 }
 function renderCalendar() {
-  const e = emp(), { isWork } = ctx(e);
+  const e = emp(), { forW } = ctx(e);
   $("#cal").innerHTML = e.trab.length ? calendarHTML(e, true) : "";
   const alerts = [];
   if (e.maxAus > 0) {
     const cnt = new Map();
-    e.trab.forEach(w => daysOf(w, e, isWork).forEach(d => cnt.set(d, (cnt.get(d) || 0) + 1)));
+    e.trab.forEach(w => daysOf(w, e, forW(w)).forEach(d => cnt.set(d, (cnt.get(d) || 0) + 1)));
     const over = [...cnt].filter(([, c]) => c > e.maxAus).map(([d]) => d).sort();
     if (over.length) alerts.push(`${over.length} dia${over.length > 1 ? "s" : ""} com mais de ${e.maxAus} pessoa${e.maxAus > 1 ? "s" : ""} de férias (primeiro: ${fmt(over[0])}).`);
   }
@@ -451,7 +470,7 @@ bind("#bClear", "click", () => { const e = newEmp(""); S = { emps: [e], cur: e.i
 function addWorker(nome) {
   const e = emp();
   if (e.trab.length >= maxWorkers()) { paywall("w"); return false; }
-  e.trab.push({ id: uid(), nome, direito: e.dias, dias: [] }); return true;
+  e.trab.push({ id: uid(), nome, direito: e.dias, folgas: [...FOLGAS_PADRAO], dias: [] }); return true;
 }
 bind("#bAddW", "click", () => { if (addWorker("")) { changed(); const ins = document.querySelectorAll('#wBody input[data-f="nome"]'); ins[ins.length - 1].focus(); } });
 bind("#bBulk", "click", () => { $("#tBulk").value = ""; dlg("#dBulk"); });
@@ -468,15 +487,24 @@ $("#wBody").addEventListener("input", ev => {
 });
 $("#wBody").addEventListener("change", ev => { if (ev.target.dataset.f === "nome") renderCalendar(); });
 $("#wBody").addEventListener("click", ev => {
-  const e = emp(), { isWork } = ctx(e), t = ev.target;
+  const e = emp(), { forW } = ctx(e), t = ev.target;
   if (t.dataset.delw) {
     const w = e.trab.find(x => x.id === t.dataset.delw);
     if (confirm(`Apagar ${w.nome || "este trabalhador"}?`)) { e.trab = e.trab.filter(x => x !== w); changed(); }
   } else if (t.dataset.addp) {
     const row = t.closest("tr"), a = row.querySelector("[data-a]").value, b = row.querySelector("[data-b]").value || a;
-    const w = e.trab.find(x => x.id === t.dataset.addp), add = expandRange(a, b, isWork);
-    if (!add.length) return alert("Escolhe o primeiro e o último dia de férias (o período tem de ter pelo menos um dia útil).");
+    const w = e.trab.find(x => x.id === t.dataset.addp), add = expandRange(a, b, forW(w));
+    if (!add.length) return alert("Escolhe o primeiro e o último dia de férias (o período tem de ter pelo menos um dia de trabalho).");
     w.dias = [...new Set([...w.dias, ...add])].sort(); changed();
+  } else if (t.dataset.folga) {
+    // os períodos marcados ficam iguais; os dias que contam passam a seguir as novas folgas
+    const [id, d] = t.dataset.folga.split("|"), w = e.trab.find(x => x.id === id), day = Number(d), y = String(e.ano);
+    const old = forW(w), per = periods(daysOf(w, e, old), old), f = folgasOf(w);
+    const nf = f.includes(day) ? f.filter(x => x !== day) : [...f, day];
+    if (nf.length > 4) return alert("Cada trabalhador tem de ter pelo menos 3 dias de trabalho por semana.");
+    w.folgas = nf;
+    w.dias = [...w.dias.filter(x => !x.startsWith(y)), ...per.flatMap(p => expandRange(p.ini, p.fim, forW(w)))];
+    changed();
   } else if (t.dataset.delp) {
     const [id, a, b] = t.dataset.delp.split("|"), w = e.trab.find(x => x.id === id);
     w.dias = w.dias.filter(d => d < a || d > b); changed();
@@ -491,14 +519,14 @@ $("#cal").addEventListener("click", ev => {
 
 // mapa para imprimir: sempre atualizado, para o Ctrl+P também funcionar
 function buildPrint() {
-  const e = emp(), { isWork } = ctx(e), c = concelho(e.concelho);
+  const e = emp(), { forW } = ctx(e), c = concelho(e.concelho);
   const rows = e.trab.map(w => {
-    const r = check(w, e, isWork);
-    return `<tr><td>${esc(w.nome)}</td><td>${r.per.map(p => p.ini === p.fim ? fmtLong(p.ini) : fmtLong(p.ini) + " a " + fmtLong(p.fim)).join("; ") || "—"}</td><td>${r.used}</td></tr>`;
+    const r = check(w, e, forW(w));
+    return `<tr><td>${esc(w.nome)}</td><td>${folgasTxt(w)}</td><td>${r.per.map(p => p.ini === p.fim ? fmtLong(p.ini) : fmtLong(p.ini) + " a " + fmtLong(p.fim)).join("; ") || "—"}</td><td>${r.used}</td></tr>`;
   }).join("");
   $("#print").innerHTML = `<h1>Mapa de Férias ${e.ano}</h1>
     <div class="meta">${esc(e.nome || "")}${e.nif ? " · NIF " + esc(e.nif) : ""}${c ? " · Concelho: " + esc(c[0]) : ""}</div>
-    <table class="sum"><thead><tr><th>Trabalhador</th><th>Períodos de férias (início a termo)</th><th>Dias úteis</th></tr></thead><tbody>${rows}</tbody></table>
+    <table class="sum"><thead><tr><th>Trabalhador</th><th>Folgas</th><th>Períodos de férias (início a termo)</th><th>Dias de férias</th></tr></thead><tbody>${rows}</tbody></table>
     ${calendarHTML(e, false)}
     <div class="foot"><span>Elaborado em ${fmtLong(iso(new Date()))}. Afixado nos locais de trabalho entre 15 de abril e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</span><span>O empregador: ______________________</span></div>
     ${tier() === "gratis" ? `<div style="margin-top:6px;color:#888">Feito com Mapa de Férias · ${CFG.SITE}</div>` : ""}`;
