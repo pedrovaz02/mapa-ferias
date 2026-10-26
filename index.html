@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapa de Férias 2027 online e grátis, com feriados municipais</title>
-<meta name="description" content="Faz o mapa de férias da tua empresa em minutos: feriados dos 308 concelhos, folgas e fins de semana contados pelo Código do Trabalho, pedidos de férias por WhatsApp e mapa pronto a afixar. Grátis, sem registo.">
+<meta name="description" content="Elabore o mapa de férias da sua empresa em minutos: feriados dos 308 concelhos, folgas e fins de semana contados pelo Código do Trabalho, pedidos de férias por WhatsApp e mapa pronto a afixar. Grátis, sem registo.">
 <link rel="canonical" href="https://pedrovaz02.github.io/mapa-ferias/">
 <meta name="google-site-verification" content="z0BjkLCOjqaFugSAAHNlCEoQd6ZmocNTOVGMYr8KM7c">
 <meta property="og:type" content="website">
@@ -16,248 +16,250 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1F4E5F">
+<meta name="theme-color" content="#1F3A5F">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mapa de Férias","url":"https://pedrovaz02.github.io/mapa-ferias/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pt-PT","description":"Mapa de férias online para empresas em Portugal, com feriados municipais dos 308 concelhos, folgas contadas pelo Código do Trabalho e pedidos de férias por WhatsApp.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 <style>
 :root{
-  --bg:#F6F1E9;--card:#fff;--ink:#1F2A30;--muted:#5F6B72;--faint:#8A949A;
-  --accent:#1F4E5F;--accent-2:#2B6A80;--accent-soft:#E4EEF0;--gold:#E8A33D;--gold-soft:#FCE9C8;
-  --vac:#F2B04B;--hol:#F6C9C4;--we:#ECEFF1;--line:#E8E2D8;--line-2:#F2EDE5;
-  --ok:#2E7D4F;--ok-soft:#E2F2E8;--warn:#8A5A00;--warn-soft:#FFF1D2;--bad:#B3261E;--bad-soft:#FBE3E1;
-  --r:16px;--shadow:0 1px 2px rgba(31,42,48,.04),0 8px 28px rgba(31,42,48,.06)
+  --bg:#F4F5F7;--card:#fff;--ink:#111827;--muted:#4B5563;--faint:#6B7280;
+  --accent:#1F3A5F;--accent-2:#2A4D7A;--accent-soft:#EAF0F7;
+  --vac:#F2B04B;--vac-soft:#FEF3DC;--hol:#F7D4D0;--we:#ECEEF1;--line:#E3E6EA;--line-2:#EEF0F3;
+  --ok:#15803D;--ok-soft:#ECF8F0;--warn:#A15C07;--warn-soft:#FFF7E6;--bad:#B42318;--bad-soft:#FDF0EF;
+  --r:10px;--shadow:0 1px 2px rgba(16,24,40,.05)
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:14.5px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-a{color:var(--accent)}
-:focus-visible{outline:3px solid rgba(43,106,128,.35);outline-offset:2px}
-.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+a{color:var(--accent-2)}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+.i{width:17px;height:17px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* barra de topo */
-.topbar{position:sticky;top:0;z-index:20;background:rgba(246,241,233,.9);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-.topbar .wrap{display:flex;align-items:center;gap:10px;height:62px}
-.brand{display:flex;align-items:center;gap:10px;font:700 19px Fraunces,Georgia,serif;color:var(--accent);text-decoration:none;margin-right:auto}
-.brand svg{width:34px;height:34px}
-.saved{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-right:6px}
-.saved .i{width:15px;height:15px;color:var(--ok)}
+.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.brand{display:flex;align-items:center;gap:10px;font:600 16px Inter,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto;letter-spacing:-.01em}
+.brand svg{width:28px;height:28px}
+.brand small{font-weight:500;color:var(--faint);font-size:13px;border-left:1px solid var(--line);padding-left:10px}
+.saved{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--faint);margin-right:6px}
+.saved .i{width:14px;height:14px;color:var(--ok)}
 .top-actions{display:flex;gap:8px}
 
 /* botões */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:999px;padding:9px 16px;font:600 14px/1.2 Inter,sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s,color .15s,transform .05s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:6px;padding:8px 14px;font:500 14px/1.2 Inter,sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
 .btn:hover{background:var(--accent-2);border-color:var(--accent-2)}
-.btn:active{transform:translateY(1px)}
 .btn .i{width:16px;height:16px}
-.btn.ghost{background:#fff;color:var(--accent);border-color:var(--line)}
-.btn.ghost:hover{background:var(--accent-soft);border-color:var(--accent-soft)}
-.btn.gold{background:var(--gold);border-color:var(--gold)}
-.btn.gold:hover{background:#D8922C;border-color:#D8922C}
-.btn.sm{padding:6px 12px;font-size:13px}
-.btn.icon{padding:8px;border-radius:10px}
-.btn.danger:hover{background:var(--bad-soft);border-color:var(--bad-soft);color:var(--bad)}
+.btn.ghost{background:#fff;color:var(--ink);border-color:#D0D5DD}
+.btn.ghost:hover{background:#F7F8FA;border-color:#B8C0CC}
+.btn.gold{background:var(--accent);border-color:var(--accent)}
+.btn.gold:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn.sm{padding:6px 10px;font-size:13px}
+.btn.icon{padding:7px}
+.btn.danger:hover{background:var(--bad-soft);border-color:#F3C5C0;color:var(--bad)}
 
 /* abertura */
-.hero{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:center;padding:42px 0 20px}
-.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:5px 12px;border-radius:999px}
-.eyebrow .i{width:15px;height:15px}
-h1{font:700 clamp(30px,4.6vw,50px)/1.05 Fraunces,Georgia,serif;color:var(--accent);margin:16px 0 12px;letter-spacing:-.5px;max-width:18ch}
-.lead{color:var(--muted);font-size:17px;max-width:58ch}
-.usp{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:10px 26px;margin-top:20px}
-.usp li{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:500}
-.usp .i{color:var(--ok)}
-.deadline{background:var(--accent);color:#fff;border-radius:20px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.deadline small{display:flex;gap:7px;align-items:center;font-size:12px;letter-spacing:.7px;text-transform:uppercase;opacity:.85;font-weight:600}
-.deadline small .i{width:15px;height:15px}
-.deadline b{display:block;font:700 60px/1 Fraunces,Georgia,serif;margin:14px 0 6px}
-.deadline span{font-size:14px;opacity:.92;display:block}
-.deadline em{display:block;font-style:normal;font-size:12px;opacity:.65;margin-top:12px}
-.deadline::after{content:"";position:absolute;right:-50px;top:-50px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero{display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:start;padding:28px 0 8px}
+.eyebrow{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:600;color:var(--accent-2);text-transform:uppercase;letter-spacing:.06em}
+.eyebrow .i{width:14px;height:14px}
+h1{font:700 clamp(24px,3.2vw,32px)/1.2 Inter,sans-serif;color:var(--ink);margin:8px 0;letter-spacing:-.02em}
+.lead{color:var(--muted);font-size:15.5px;max-width:66ch}
+.usp{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px}
+.usp li{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--muted)}
+.usp .i{color:var(--accent-2);width:15px;height:15px}
+.deadline{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow)}
+.deadline small{display:flex;gap:6px;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.deadline small .i{width:14px;height:14px}
+.deadline b{display:block;font:700 28px/1.15 Inter,sans-serif;color:var(--accent);margin:8px 0 2px;letter-spacing:-.02em}
+.deadline span{font-size:13.5px;color:var(--muted);display:block}
+.deadline em{display:block;font-style:normal;font-size:12px;color:var(--faint);margin-top:8px}
 
 /* cartões e passos */
-.card{background:var(--card);border-radius:var(--r);padding:24px;border:1px solid var(--line);box-shadow:var(--shadow);margin:16px 0}
-.step-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.step-n{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
-h2{font:700 23px/1.2 Fraunces,Georgia,serif;color:var(--accent)}
-.step-head p{color:var(--muted);font-size:14px;width:100%;padding-left:44px;margin-top:-8px}
+.card{background:var(--card);border-radius:var(--r);padding:22px;border:1px solid var(--line);box-shadow:var(--shadow);margin:14px 0}
+.step-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line-2)}
+.step-n{width:24px;height:24px;border-radius:6px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:12.5px;flex:none}
+h2{font:600 17px/1.3 Inter,sans-serif;color:var(--ink);letter-spacing:-.01em}
+.step-head p{color:var(--faint);font-size:13.5px;width:100%;padding-left:34px;margin-top:-4px}
 .step-head .actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
-.banner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;background:var(--gold-soft);border:1px solid #F1D49E;border-radius:14px;padding:12px 16px;font-size:14px;margin-top:6px}
+.banner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;background:var(--accent-soft);border:1px solid #D5E0EE;border-radius:var(--r);padding:10px 14px;font-size:13.5px;margin-top:6px;color:var(--accent)}
 .banner span{display:flex;gap:8px;align-items:center}
 
 /* formulário */
-.form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.field label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
-input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
-input:hover,select:hover,textarea:hover{border-color:#D9D0C2}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(43,106,128,.15)}
+.form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 16px}
+.field label{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin-bottom:5px}
+input,select,textarea{width:100%;padding:8px 10px;border:1px solid #D0D5DD;border-radius:6px;font:inherit;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input:hover,select:hover,textarea:hover{border-color:#B8C0CC}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(42,77,122,.15)}
 textarea{min-height:140px;resize:vertical}
-.hint{font-size:12px;color:var(--faint);margin-top:6px}
-.toggles{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.switch{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-size:14px;font-weight:500;user-select:none;background:#fff}
-.switch:hover{border-color:#D9D0C2}
-.switch input{appearance:none;-webkit-appearance:none;width:34px;height:20px;border-radius:999px;background:#D3D9DC;position:relative;cursor:pointer;transition:background .15s;border:0;padding:0;flex:none}
-.switch input::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.hint{font-size:12px;color:var(--faint);margin-top:5px}
+.toggles{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:16px}
+.switch{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-size:13.5px;user-select:none;color:var(--ink)}
+.switch input{appearance:none;-webkit-appearance:none;width:30px;height:18px;border-radius:999px;background:#CDD3DB;position:relative;cursor:pointer;transition:background .15s;border:0;padding:0;flex:none}
+.switch input::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
 .switch input:checked{background:var(--accent)}
-.switch input:checked::after{transform:translateX(14px)}
-.switch input:focus{box-shadow:0 0 0 3px rgba(43,106,128,.2)}
-.hols{margin-top:18px;border-top:1px solid var(--line-2);padding-top:14px}
-.hols summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent);list-style:none;display:flex;align-items:center;gap:8px}
+.switch input:checked::after{transform:translateX(12px)}
+.switch input:focus{box-shadow:0 0 0 3px rgba(42,77,122,.2)}
+.hols{margin-top:16px;border-top:1px solid var(--line-2);padding-top:12px}
+.hols summary{cursor:pointer;font-weight:500;font-size:13.5px;color:var(--ink);list-style:none;display:flex;align-items:center;gap:8px}
+.hols summary .i{color:var(--faint)}
 .hols summary::-webkit-details-marker{display:none}
-.hols summary::after{content:"Ver todos";margin-left:auto;font-weight:500;font-size:13px;color:var(--muted);text-decoration:underline}
-.hols[open] summary::after{content:"Esconder"}
+.hols summary::after{content:"Mostrar";margin-left:auto;font-weight:500;font-size:13px;color:var(--accent-2)}
+.hols[open] summary::after{content:"Ocultar"}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center}
-.chip{background:var(--line-2);border-radius:999px;padding:4px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
-.chip .i{width:14px;height:14px}
-.chip.hol{background:var(--hol)}
-.chip.mun{background:var(--gold-soft);font-weight:600}
-.chip.note{background:var(--warn-soft);color:var(--warn);font-weight:500}
-.chip.vac{background:var(--gold-soft);font-weight:500}
-.chip button{border:0;background:none;cursor:pointer;color:var(--muted);display:grid;place-items:center;padding:0;border-radius:50%}
+.chip{background:var(--line-2);border-radius:4px;padding:3px 8px;font-size:12.5px;display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
+.chip .i{width:13px;height:13px}
+.chip.hol{background:#FBEAE8}
+.chip.mun{background:#FBEAE8;font-weight:600}
+.chip.note{background:var(--warn-soft);color:var(--warn);font-weight:500;border:1px solid #F5DDB0}
+.chip.vac{background:var(--vac-soft);border:1px solid #F5DDB0}
+.chip button{border:0;background:none;cursor:pointer;color:var(--faint);display:grid;place-items:center;padding:0}
 .chip button:hover{color:var(--bad)}
-.chip button .i{width:14px;height:14px}
+.chip button .i{width:13px;height:13px}
 
 /* equipa */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
-.kpi{background:var(--bg);border-radius:12px;padding:12px 14px}
-.kpi b{display:block;font:700 26px/1.15 Fraunces,Georgia,serif;color:var(--accent)}
-.kpi b small{font:500 14px Inter,sans-serif;color:var(--muted)}
-.kpi span{font-size:12px;color:var(--muted)}
-.kpi.bad{background:var(--bad-soft)}.kpi.bad b{color:var(--bad)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:16px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.kpi{padding:12px 16px;border-right:1px solid var(--line)}
+.kpi:last-child{border-right:0}
+.kpi b{display:block;font:600 22px/1.2 Inter,sans-serif;color:var(--ink);letter-spacing:-.01em}
+.kpi b small{font:500 13px Inter,sans-serif;color:var(--faint)}
+.kpi span{font-size:12px;color:var(--faint)}
+.kpi.bad b{color:var(--bad)}
 .team{width:100%;border-collapse:separate;border-spacing:0}
-.team th{font-size:12px;color:var(--muted);text-align:left;font-weight:600;padding:0 10px 8px;border-bottom:1px solid var(--line)}
-.team td{padding:14px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}
+.team th{font-size:11.5px;color:var(--faint);text-align:left;font-weight:500;padding:0 10px 8px;border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:.05em}
+.team td{padding:12px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}
 .team tr:last-child td{border-bottom:0}
+.team tbody tr:hover td{background:#FAFBFC}
 .who{display:flex;gap:10px;align-items:flex-start}
 .who>div{flex:1;min-width:0}
-.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;flex:none;margin-top:1px}
-.name-in{border-color:transparent;background:transparent;padding:6px 8px;font-weight:600}
-.folgas{display:flex;align-items:center;gap:3px;margin-top:3px;padding-left:8px;font-size:12px;color:var(--faint)}
+.avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:12px;color:var(--accent);background:var(--accent-soft)!important;flex:none;margin-top:2px}
+.name-in{border-color:transparent;background:transparent;padding:5px 8px;font-weight:600}
+.folgas{display:flex;align-items:center;gap:3px;margin-top:2px;padding-left:8px;font-size:12px;color:var(--faint)}
 .folgas em{font-style:normal;margin-right:5px}
-.fd{width:25px;height:25px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--muted);font:600 11px Inter,sans-serif;cursor:pointer;padding:0;transition:background .12s,color .12s,border-color .12s}
+.fd{width:23px;height:23px;border-radius:4px;border:1px solid var(--line);background:#fff;color:var(--muted);font:600 11px Inter,sans-serif;cursor:pointer;padding:0;transition:background .12s,color .12s,border-color .12s}
 .fd:hover{border-color:var(--accent-2);color:var(--accent)}
-.fd.on{background:var(--muted);border-color:var(--muted);color:#fff}
-.dir-in{width:66px;text-align:center}
-.used{font-size:13px;color:var(--muted)}
-.used b{font:700 19px Fraunces,Georgia,serif;color:var(--ink)}
-.bar{height:6px;background:var(--line-2);border-radius:999px;overflow:hidden;margin:5px 0 8px;max-width:280px}
-.bar i{display:block;height:100%;border-radius:999px;background:var(--gold);transition:width .25s}
+.fd.on{background:#5B6675;border-color:#5B6675;color:#fff}
+.dir-in{width:64px;text-align:center}
+.used{font-size:12.5px;color:var(--faint)}
+.used b{font:600 15px Inter,sans-serif;color:var(--ink)}
+.bar{height:4px;background:var(--line-2);border-radius:2px;overflow:hidden;margin:6px 0 8px;max-width:260px}
+.bar i{display:block;height:100%;background:#D4A13A;transition:width .25s}
 .bar.ok i{background:var(--ok)}.bar.bad i{background:var(--bad)}
-.none{font-size:13px;color:var(--faint)}
+.none{font-size:12.5px;color:var(--faint)}
 .addp{display:none;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
 .addp.open{display:flex}
-.addp input{width:152px;padding:7px 9px}
-.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:5px 11px;border-radius:999px}
-.pill .i{width:14px;height:14px}
+.addp input{width:150px;padding:6px 8px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:500;padding:3px 8px;border-radius:4px}
+.pill .i{width:13px;height:13px}
 .pill.ok{background:var(--ok-soft);color:var(--ok)}
 .pill.warn{background:var(--warn-soft);color:var(--warn)}
 .pill.bad{background:var(--bad-soft);color:var(--bad)}
 .m-lbl{display:none}
-.empty{padding:34px 10px;text-align:center;color:var(--muted)}
-.empty .i{width:34px;height:34px;color:var(--faint);margin-bottom:8px}
+.empty{padding:30px 10px;text-align:center;color:var(--faint)}
+.empty .i{width:28px;height:28px;color:#9AA3AE;margin-bottom:8px}
 
 /* calendário */
-.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:4px 0 10px}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
-.alert{display:flex;gap:10px;align-items:flex-start;background:var(--bad-soft);color:var(--bad);border-radius:12px;padding:11px 14px;font-size:14px;font-weight:500;margin:8px 0}
-.month-title{display:flex;align-items:baseline;gap:10px;font-weight:700;color:var(--accent);margin:20px 0 7px;font-size:15px}
-.month-title small{font-weight:500;color:var(--faint);font-size:12px}
-.cal-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--faint);margin:0 0 10px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.alert{display:flex;gap:10px;align-items:flex-start;background:var(--bad-soft);color:var(--bad);border:1px solid #F3C5C0;border-radius:var(--r);padding:10px 14px;font-size:13.5px;margin:8px 0}
+.month-title{display:flex;align-items:baseline;gap:10px;font-weight:600;color:var(--ink);margin:18px 0 6px;font-size:13.5px}
+.month-title small{font-weight:400;color:var(--faint);font-size:12px}
+.cal-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;-webkit-overflow-scrolling:touch}
 .cal{border-collapse:separate;border-spacing:0;font-size:11px;width:100%;min-width:980px;table-layout:fixed;user-select:none;-webkit-user-select:none}
-.cal th,.cal td{text-align:center;height:27px;padding:0;border-right:1px solid #fff;border-bottom:1px solid #fff}
-.cal thead th{background:#FAF7F2;color:var(--muted);font-weight:600;line-height:1.15;padding:3px 0}
+.cal th,.cal td{text-align:center;height:26px;padding:0;border-right:1px solid #fff;border-bottom:1px solid #fff}
+.cal thead th{background:#F7F8FA;color:var(--faint);font-weight:500;line-height:1.15;padding:3px 0}
 .cal .name{position:sticky;left:0;background:#fff;text-align:left;padding:0 10px;width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500;z-index:1;border-right:1px solid var(--line);font-size:12px}
-.cal thead .name{background:#FAF7F2}
+.cal thead .name{background:#F7F8FA}
 .cal .pad{background:#fff}
-.cal .we{background:var(--we);color:#9AA3A8}
+.cal .we{background:var(--we);color:#9AA3AE}
 .cal .hol{background:var(--hol)}
 .cal td.vac{background:var(--vac)}
 .cal td.work{cursor:pointer}
 .cal td.work:hover{box-shadow:inset 0 0 0 2px var(--accent-2)}
-.cal td.sel{background:#9CC3CF}
-.cal td.sel.rm{background:#E9A49E}
-.cal th.today{box-shadow:inset 0 -3px 0 var(--gold);color:var(--ink)}
-.cal tr.aus td{background:#FAF7F2;color:var(--muted);font-size:10px;font-weight:700;height:22px}
+.cal td.sel{background:#A9C1DD}
+.cal td.sel.rm{background:#EBB3AD}
+.cal th.today{box-shadow:inset 0 -2px 0 var(--accent);color:var(--ink);font-weight:700}
+.cal tr.aus td{background:#F7F8FA;color:var(--faint);font-size:10px;font-weight:600;height:22px}
 .cal tr.aus td.over{background:var(--bad);color:#fff}
-.cal tr.aus .name{font-size:11px;font-weight:600}
+.cal tr.aus .name{font-size:11px;font-weight:500}
 
 /* imprimir, preços, perguntas */
-.ready{display:flex;gap:10px;align-items:center;font-size:14px;padding:12px 14px;border-radius:12px;background:var(--ok-soft);color:var(--ok);font-weight:500}
-.ready.warn{background:var(--warn-soft);color:var(--warn)}
-.todo{list-style:none;display:grid;gap:8px;margin:16px 0;color:var(--muted);font-size:14px}
+.ready{display:flex;gap:10px;align-items:center;font-size:13.5px;padding:10px 14px;border-radius:var(--r);background:var(--ok-soft);color:var(--ok);border:1px solid #CBE9D5}
+.ready.warn{background:var(--warn-soft);color:var(--warn);border-color:#F5DDB0}
+.todo{list-style:none;display:grid;gap:8px;margin:14px 0;color:var(--muted);font-size:13.5px}
 .todo li{display:flex;gap:10px;align-items:flex-start}
-.todo .i{color:var(--accent);margin-top:2px}
+.todo .i{color:var(--accent-2);margin-top:2px}
 .prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.price{border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.price.hl{border:2px solid var(--accent)}
-.price h3{font-size:15px;font-weight:600}
-.price b{font:700 34px/1 Fraunces,Georgia,serif;color:var(--accent)}
-.price b small{font:500 14px Inter,sans-serif;color:var(--muted)}
-.price ul{list-style:none;display:grid;gap:7px;font-size:14px;color:var(--muted);flex:1;margin:4px 0}
+.price{border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:8px}
+.price.hl{border-color:var(--accent);box-shadow:inset 0 3px 0 var(--accent)}
+.price h3{font-size:14px;font-weight:600;color:var(--muted)}
+.price b{font:700 28px/1.1 Inter,sans-serif;color:var(--ink);letter-spacing:-.02em}
+.price b small{font:500 13px Inter,sans-serif;color:var(--faint)}
+.price ul{list-style:none;display:grid;gap:6px;font-size:13.5px;color:var(--muted);flex:1;margin:4px 0}
 .price li{display:flex;gap:8px;align-items:flex-start}
-.price li .i{color:var(--ok);width:16px;height:16px;margin-top:3px}
-.lic{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;font-size:14px;color:var(--muted)}
-.faq details{border-bottom:1px solid var(--line-2);padding:15px 0}
+.price li .i{color:var(--ok);width:15px;height:15px;margin-top:3px}
+.lic{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:13.5px;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line-2);padding:13px 0}
 .faq details:last-of-type{border-bottom:0}
-.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:12px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);transition:transform .15s;flex:none}
+.faq summary::after{content:"+";font-size:18px;line-height:1;color:var(--faint);transition:transform .15s;flex:none}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{color:var(--muted);margin-top:8px;max-width:75ch}
-footer{color:var(--muted);font-size:13px;padding:26px 0 70px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;border-top:1px solid var(--line);margin-top:28px}
+.faq details p{color:var(--muted);margin-top:8px;max-width:78ch;font-size:13.5px}
+footer{color:var(--faint);font-size:12.5px;padding:22px 0 60px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;border-top:1px solid var(--line);margin-top:24px}
 footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--muted)}
 
 /* diálogos e avisos */
-dialog{border:0;border-radius:20px;padding:24px;max-width:500px;width:calc(100% - 32px);margin:auto;box-shadow:0 24px 70px rgba(0,0,0,.25);color:var(--ink)}
-dialog::backdrop{background:rgba(31,42,48,.45)}
+dialog{border:1px solid var(--line);border-radius:12px;padding:22px;max-width:480px;width:calc(100% - 32px);margin:auto;box-shadow:0 20px 50px rgba(16,24,40,.18);color:var(--ink)}
+dialog::backdrop{background:rgba(16,24,40,.45)}
 dialog h2{margin-bottom:6px}
-dialog p{color:var(--muted);margin-bottom:14px}
+dialog p{color:var(--muted);margin-bottom:14px;font-size:13.5px}
 .dlg-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
-.msg{font-size:14px;margin-top:8px;min-height:20px}
-#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:12px 16px;border-radius:14px;display:flex;gap:16px;align-items:center;font-size:14px;box-shadow:0 12px 34px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:calc(100% - 32px)}
+.msg{font-size:13.5px;margin-top:8px;min-height:20px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);background:#1F2937;color:#fff;padding:10px 14px;border-radius:8px;display:flex;gap:16px;align-items:center;font-size:13.5px;box-shadow:0 10px 30px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:calc(100% - 32px)}
 #toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
 #toast.err{background:var(--bad)}
-#toast button{background:none;border:0;color:var(--gold);font:700 14px Inter,sans-serif;cursor:pointer;padding:0}
+#toast button{background:none;border:0;color:#9EC1EA;font:600 13.5px Inter,sans-serif;cursor:pointer;padding:0}
 
 /* página do trabalhador: pedido de férias */
 #pedirView{display:none;max-width:560px;margin:28px auto}
 body.pedir .hero,body.pedir #app,body.pedir #topActions,body.pedir .saved{display:none}
 body.pedir #pedirView{display:block}
 .per-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.est{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);border-radius:12px;padding:12px 14px;margin-top:16px;font-size:14px}
+.est{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);border-radius:var(--r);padding:11px 14px;margin-top:16px;font-size:13.5px}
 .est .i{color:var(--accent);margin-top:2px}
 
 #print{display:none}
-@media(max-width:900px){.hero{grid-template-columns:1fr;gap:20px;padding-top:28px}.deadline b{font-size:48px}}
-@media(max-width:900px){.form{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:16px;padding-top:20px}.form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){
   .kpis{grid-template-columns:repeat(2,1fr)}
-  .usp{grid-template-columns:1fr}
+  .kpi:nth-child(2){border-right:0}.kpi:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .team thead{display:none}
   .team,.team tbody,.team tr,.team td{display:block}
-  .team tr{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .team tr{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:12px 0;border-bottom:1px solid var(--line-2)}
   .team tr:last-child{border-bottom:0}
   .team td{border:0;padding:0}
+  .team tbody tr:hover td{background:none}
   .team .c-who{grid-column:1}.team .c-del{grid-column:2;grid-row:1}
   .team .c-dir,.team .c-fer,.team .c-st{grid-column:1/-1}
-  .team .c-dir{display:flex;align-items:center;gap:10px;padding-left:46px}
-  .team .c-fer,.team .c-st{padding-left:46px}
+  .team .c-dir{display:flex;align-items:center;gap:10px;padding-left:42px}
+  .team .c-fer,.team .c-st{padding-left:42px}
   .m-lbl{display:inline;font-size:13px;color:var(--muted)}
 }
 @media(max-width:640px){
-  .lbl{display:none}.saved{display:none}
-  .card{padding:18px}.step-head p{padding-left:0;margin-top:0}
+  .lbl{display:none}.saved{display:none}.brand small{display:none}
+  .card{padding:16px}.step-head p{padding-left:0;margin-top:0}
   .form{grid-template-columns:1fr}
-  .topbar .btn{padding:9px}
+  .topbar .btn{padding:8px}
 }
 @media print{
   @page{size:A4 landscape;margin:10mm}
   body{background:#fff;font-size:10px}
   .topbar,.hero,#app,footer,#toast,#pedirView,dialog{display:none!important}
   #print{display:block}
-  #print h1{font-size:20px;margin:0 0 2px;max-width:none}
+  #print h1{font:700 18px Inter,sans-serif;margin:0 0 2px;max-width:none;letter-spacing:0}
   #print .meta{color:#444;margin-bottom:8px}
   #print table{width:100%;margin-bottom:8px}
   #print .sum{border-collapse:collapse}
@@ -299,10 +301,10 @@ body.pedir #pedirView{display:block}
 
 <div class="topbar"><div class="wrap">
   <a class="brand" href="./" aria-label="Mapa de Férias, início">
-    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#1F4E5F"/><rect x="14" y="18" width="36" height="32" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M14 28h36M24 12v10M40 12v10" stroke="#fff" stroke-width="4" stroke-linecap="round"/><rect x="21" y="34" width="9" height="9" rx="2" fill="#E8A33D"/></svg>
-    Mapa de Férias
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#1F3A5F"/><rect x="14" y="18" width="36" height="32" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M14 28h36M24 12v10M40 12v10" stroke="#fff" stroke-width="4" stroke-linecap="round"/><rect x="21" y="34" width="9" height="9" rx="2" fill="#E8A33D"/></svg>
+    Mapa de Férias<small>para empresas</small>
   </a>
-  <span class="saved"><svg class="i"><use href="#i-shield"/></svg>Dados só neste computador</span>
+  <span class="saved"><svg class="i"><use href="#i-shield"/></svg>Dados guardados apenas neste computador</span>
   <div id="topActions" class="top-actions">
     <button class="btn ghost" id="bExport" title="Guardar uma cópia num ficheiro"><svg class="i"><use href="#i-download"/></svg><span class="lbl">Guardar cópia</span></button>
     <button class="btn ghost" id="bImport" title="Abrir uma cópia guardada"><svg class="i"><use href="#i-upload"/></svg><span class="lbl">Abrir</span></button>
@@ -314,14 +316,14 @@ body.pedir #pedirView{display:block}
 <div class="wrap">
 <header class="hero">
   <div>
-    <span class="eyebrow"><svg class="i"><use href="#i-check"/></svg>Grátis até 3 trabalhadores · sem registo</span>
-    <h1>Mapa de férias <span id="hYear">2027</span>, pronto a afixar em minutos</h1>
-    <p class="lead">Escolhe o concelho, junta a equipa e marca as férias. Feriados municipais, fins de semana e folgas contam-se sozinhos, segundo o Código do Trabalho.</p>
+    <span class="eyebrow"><svg class="i"><use href="#i-building"/></svg>Ferramenta para empresas · Gratuita até 3 trabalhadores</span>
+    <h1>Mapa de férias <span id="hYear">2027</span> para empresas</h1>
+    <p class="lead">Elabore o mapa de férias da sua empresa de acordo com o Código do Trabalho. Os feriados nacionais e municipais, os fins de semana e as folgas de cada trabalhador são contados automaticamente.</p>
     <ul class="usp">
       <li><svg class="i"><use href="#i-pin"/></svg>Feriados dos 308 concelhos</li>
-      <li><svg class="i"><use href="#i-users"/></svg>Folgas contadas por lei (art. 238.º)</li>
+      <li><svg class="i"><use href="#i-users"/></svg>Folgas contadas nos termos do art. 238.º</li>
       <li><svg class="i"><use href="#i-chat"/></svg>Pedidos de férias por WhatsApp</li>
-      <li><svg class="i"><use href="#i-shield"/></svg>Os dados nunca saem do teu computador</li>
+      <li><svg class="i"><use href="#i-shield"/></svg>Sem registo, dados guardados apenas neste computador</li>
     </ul>
   </div>
   <aside class="deadline" aria-live="polite">
@@ -336,7 +338,7 @@ body.pedir #pedirView{display:block}
   <span class="eyebrow"><svg class="i"><use href="#i-chat"/></svg>Pedido de férias</span>
   <h2 id="pvTitle" style="margin:14px 0 6px">Pedido de férias</h2>
   <p id="pvSub" style="color:var(--muted)"></p>
-  <div class="field" style="margin-top:18px"><label for="pvNome">O teu nome</label><input id="pvNome" autocomplete="name" placeholder="Nome e apelido"></div>
+  <div class="field" style="margin-top:18px"><label for="pvNome">Nome</label><input id="pvNome" autocomplete="name" placeholder="Nome e apelido"></div>
   <div id="pvPers"></div>
   <button class="btn ghost sm" id="pvAdd" style="margin-top:12px"><svg class="i"><use href="#i-plus"/></svg>Outro período</button>
   <div class="est" id="pvEst"></div>
@@ -344,13 +346,13 @@ body.pedir #pedirView{display:block}
     <button class="btn" id="pvSend"><svg class="i"><use href="#i-chat"/></svg>Enviar pelo WhatsApp</button>
     <button class="btn ghost" id="pvCopy"><svg class="i"><use href="#i-copy"/></svg>Copiar mensagem</button>
   </div>
-  <p class="hint" style="margin-top:14px">O pedido segue pelo WhatsApp para quem escolheres. Nada fica guardado neste site.</p>
-  <p class="hint" style="margin-top:18px">Tens uma empresa? <a href="./">Faz o mapa de férias da tua equipa, grátis</a>.</p>
+  <p class="hint" style="margin-top:14px">O pedido é enviado por WhatsApp para o destinatário que escolher. Nenhum dado fica guardado neste site.</p>
+  <p class="hint" style="margin-top:18px">Elabore também o mapa de férias da sua empresa: <a href="./">Mapa de Férias, gratuito até 3 trabalhadores</a>.</p>
 </section>
 
 <main id="app">
   <div class="banner" id="demoBanner" hidden>
-    <span><svg class="i"><use href="#i-alert"/></svg>Estás a ver um exemplo. Muda os dados ou começa do zero.</span>
+    <span><svg class="i"><use href="#i-alert"/></svg>Está a ver dados de exemplo. Altere-os ou comece do zero.</span>
     <button class="btn sm" id="bClear">Começar do zero</button>
   </div>
 
@@ -359,15 +361,15 @@ body.pedir #pedirView{display:block}
       <span class="step-n">1</span><h2>Empresa</h2>
       <div class="actions">
         <select id="sEmp" style="width:auto" aria-label="Escolher empresa"></select>
-        <button class="btn ghost sm" id="bNewEmp"><svg class="i"><use href="#i-building"/></svg>Outra empresa</button>
+        <button class="btn ghost sm" id="bNewEmp"><svg class="i"><use href="#i-building"/></svg>Nova empresa</button>
         <button class="btn ghost sm danger" id="bDelEmp"><svg class="i"><use href="#i-trash"/></svg>Apagar</button>
       </div>
-      <p>O concelho decide o feriado municipal. Tudo o resto vem do Código do Trabalho.</p>
+      <p>O concelho determina o feriado municipal. As restantes regras seguem o Código do Trabalho.</p>
     </div>
     <div class="form">
       <div class="field"><label for="iNome">Nome da empresa</label><input id="iNome" placeholder="Ex.: Café Central, Lda."></div>
       <div class="field"><label for="iNif">NIF (opcional)</label><input id="iNif" inputmode="numeric" maxlength="9" placeholder="9 dígitos"></div>
-      <div class="field"><label for="iConc">Concelho do local de trabalho</label><input id="iConc" list="lConc" placeholder="Escreve e escolhe da lista" autocomplete="off"><datalist id="lConc"></datalist></div>
+      <div class="field"><label for="iConc">Concelho do local de trabalho</label><input id="iConc" list="lConc" placeholder="Escreva e escolha da lista" autocomplete="off"><datalist id="lConc"></datalist></div>
       <div class="field"><label for="sAno">Ano</label><select id="sAno"><option>2026</option><option selected>2027</option><option>2028</option></select></div>
       <div class="field"><label for="iDias">Dias de férias por ano</label><input id="iDias" type="number" min="0" max="40" value="22"><div class="hint">O mínimo legal são 22.</div></div>
       <div class="field"><label for="iMax">Máximo de ausentes no mesmo dia</label><input id="iMax" type="number" min="0" value="0"><div class="hint">0 desliga o aviso.</div></div>
@@ -386,10 +388,10 @@ body.pedir #pedirView{display:block}
       <span class="step-n">2</span><h2>Equipa e férias</h2>
       <div class="actions">
         <button class="btn ghost sm" id="bPedidos"><svg class="i"><use href="#i-chat"/></svg>Pedidos por WhatsApp</button>
-        <button class="btn ghost sm" id="bBulk"><svg class="i"><use href="#i-users"/></svg>Colar lista de nomes</button>
-        <button class="btn sm" id="bAddW"><svg class="i"><use href="#i-plus"/></svg>Trabalhador</button>
+        <button class="btn ghost sm" id="bBulk"><svg class="i"><use href="#i-users"/></svg>Importar lista</button>
+        <button class="btn sm" id="bAddW"><svg class="i"><use href="#i-plus"/></svg>Adicionar trabalhador</button>
       </div>
-      <p>Marca as folgas de cada pessoa (D S T Q Q S S): quem trabalha ao fim de semana tem as férias contadas de outra forma.</p>
+      <p>Indique os dias de folga de cada trabalhador (D S T Q Q S S). Para quem trabalha ao fim de semana, os dias de férias são contados de forma diferente.</p>
     </div>
     <div class="kpis" id="kpis"></div>
     <table class="team">
@@ -401,7 +403,7 @@ body.pedir #pedirView{display:block}
   <section class="card" id="s-cal">
     <div class="step-head">
       <span class="step-n">3</span><h2>Calendário</h2>
-      <p>Clica num dia para marcar ou desmarcar. No computador, arrasta sobre vários dias para marcar um período de uma vez.</p>
+      <p>Clique num dia para marcar ou desmarcar férias. No computador, pode arrastar sobre vários dias para marcar um período.</p>
     </div>
     <div class="legend"><span><i style="background:var(--vac)"></i>Férias</span><span><i style="background:var(--hol)"></i>Feriado</span><span><i style="background:var(--we)"></i>Folga ou fim de semana</span><span><i style="background:var(--bad)"></i>Ausentes acima do máximo</span></div>
     <div class="alert" id="alerts" hidden></div>
@@ -412,9 +414,9 @@ body.pedir #pedirView{display:block}
     <div class="step-head"><span class="step-n">4</span><h2>Imprimir e afixar</h2></div>
     <div class="ready" id="ready"></div>
     <ul class="todo">
-      <li><svg class="i"><use href="#i-printer"/></svg>Imprime em A4 (ou guarda em PDF) com a lista de períodos e o calendário do ano.</li>
-      <li><svg class="i"><use href="#i-pin"/></svg>Assina e afixa num sítio visível até 15 de abril. Fica afixado até 31 de outubro.</li>
-      <li><svg class="i"><use href="#i-download"/></svg>Guarda uma cópia: serve de segurança e para passares os dados a outro computador.</li>
+      <li><svg class="i"><use href="#i-printer"/></svg>Imprima em A4 (ou guarde em PDF): inclui a lista de períodos e o calendário anual.</li>
+      <li><svg class="i"><use href="#i-pin"/></svg>Assine e afixe num local visível até 15 de abril. O mapa permanece afixado até 31 de outubro.</li>
+      <li><svg class="i"><use href="#i-download"/></svg>Guarde uma cópia de segurança, que também permite transferir os dados para outro computador.</li>
     </ul>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn gold" id="bPrint2"><svg class="i"><use href="#i-printer"/></svg>Imprimir mapa de férias</button>
@@ -423,31 +425,31 @@ body.pedir #pedirView{display:block}
   </section>
 
   <section class="card" id="precos">
-    <div class="step-head"><h2>Preços</h2><p style="padding-left:0">Paga uma vez por ano. Sem mensalidades nem dados na nuvem.</p></div>
+    <div class="step-head"><h2>Preços</h2><p style="padding-left:0">Pagamento anual, sem mensalidades. Os dados não são guardados na nuvem.</p></div>
     <div class="prices">
-      <div class="price"><h3>Grátis</h3><b>0 €</b><ul><li><svg class="i"><use href="#i-check"/></svg>1 empresa</li><li><svg class="i"><use href="#i-check"/></svg>Até 3 trabalhadores</li><li><svg class="i"><use href="#i-check"/></svg>Todas as funções</li></ul></div>
+      <div class="price"><h3>Gratuito</h3><b>0 €</b><ul><li><svg class="i"><use href="#i-check"/></svg>1 empresa</li><li><svg class="i"><use href="#i-check"/></svg>Até 3 trabalhadores</li><li><svg class="i"><use href="#i-check"/></svg>Todas as funções</li></ul></div>
       <div class="price hl"><h3>Empresa</h3><b>29 € <small>/ano</small></b><ul><li><svg class="i"><use href="#i-check"/></svg>Trabalhadores ilimitados</li><li><svg class="i"><use href="#i-check"/></svg>Mapa impresso sem rodapé</li><li><svg class="i"><use href="#i-check"/></svg>Pedidos por WhatsApp para toda a equipa</li></ul><a class="btn buy" data-tier="empresa">Comprar</a></div>
       <div class="price"><h3>Contabilista</h3><b>99 € <small>/ano</small></b><ul><li><svg class="i"><use href="#i-check"/></svg>Empresas ilimitadas</li><li><svg class="i"><use href="#i-check"/></svg>Trabalhadores ilimitados</li><li><svg class="i"><use href="#i-check"/></svg>Para gabinetes com muitos clientes</li></ul><a class="btn buy" data-tier="contabilista">Comprar</a></div>
     </div>
-    <div class="lic"><span id="licState"></span><button class="btn ghost sm" id="bLic"><svg class="i"><use href="#i-key"/></svg>Já tenho licença</button></div>
+    <div class="lic"><span id="licState"></span><button class="btn ghost sm" id="bLic"><svg class="i"><use href="#i-key"/></svg>Ativar licença</button></div>
   </section>
 
   <section class="card faq" id="perguntas">
     <div class="step-head"><h2>Perguntas frequentes</h2></div>
-    <details><summary>Até quando tenho de fazer o mapa de férias?</summary><p>Até 15 de abril de cada ano. O mapa fica afixado nos locais de trabalho entre essa data e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</p></details>
-    <details><summary>Quantos dias de férias tem cada trabalhador?</summary><p>Pelo menos 22 dias úteis por ano (art. 238.º). Dias úteis são de segunda a sexta, sem feriados. No ano de admissão as regras são outras: ajusta o "Direito" dessa pessoa.</p></details>
-    <details><summary>E quem trabalha ao fim de semana?</summary><p>Marca as folgas de cada pessoa nos botões D S T Q Q S S. Se alguém folga num dia útil, o sábado e o domingo contam como dias de férias em vez dessa folga (art. 238.º, n.º 3). Quem folga só um dia útil por semana conta o sábado em vez dele, para a semana de férias valer 5 dias. Com folgas rotativas, marca as mais habituais.</p></details>
-    <details><summary>As férias podem ser repartidas?</summary><p>Sim, por acordo, desde que haja pelo menos um período de 10 dias úteis seguidos (art. 241.º, n.º 8). A app avisa quando isso falta.</p></details>
+    <details><summary>Qual é o prazo para elaborar o mapa de férias?</summary><p>Até 15 de abril de cada ano. O mapa fica afixado nos locais de trabalho entre essa data e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</p></details>
+    <details><summary>Quantos dias de férias tem cada trabalhador?</summary><p>Pelo menos 22 dias úteis por ano (art. 238.º). Dias úteis são de segunda a sexta, sem feriados. No ano de admissão aplicam-se regras próprias: ajuste o campo "Direito" desse trabalhador.</p></details>
+    <details><summary>Como se contam as férias de quem trabalha ao fim de semana?</summary><p>Indique as folgas de cada trabalhador nos botões D S T Q Q S S. Quando a folga coincide com um dia útil, o sábado e o domingo contam como dias de férias em substituição (art. 238.º, n.º 3). Quem folga apenas um dia útil por semana conta o sábado em substituição, para que cada semana de férias corresponda a 5 dias. Em regime de folgas rotativas, indique as mais habituais.</p></details>
+    <details><summary>As férias podem ser repartidas?</summary><p>Sim, por acordo, desde que haja pelo menos um período de 10 dias úteis seguidos (art. 241.º, n.º 8). A aplicação assinala quando essa condição não é cumprida.</p></details>
     <details><summary>E se não houver acordo?</summary><p>O empregador marca as férias, mas só entre 1 de maio e 31 de outubro (art. 241.º, n.º 3), salvo regras do contrato coletivo.</p></details>
-    <details><summary>Como funcionam os pedidos por WhatsApp?</summary><p>Em "Pedidos por WhatsApp" copias um link e mandas à equipa. Cada pessoa escolhe as datas no telemóvel e devolve-te o pedido por WhatsApp. Tocas no link do pedido, confirmas, e as férias ficam marcadas aqui. Não há contas nem servidores pelo meio.</p></details>
-    <details><summary>O feriado municipal é obrigatório?</summary><p>Só quando está no contrato, no contrato coletivo ou é costume na empresa. Por isso podes ligá-lo ou desligá-lo. As datas vêm de fontes públicas e podem mudar: confirma a do teu concelho junto da câmara. <a href="feriado-municipal/">Vê o feriado municipal de 2027 de cada concelho</a>.</p></details>
-    <details><summary>Onde ficam os dados?</summary><p>Só no teu computador, neste browser. Nada é enviado para servidores. Usa "Guardar cópia" para teres um ficheiro de segurança ou para passares para outro computador.</p></details>
+    <details><summary>Como funcionam os pedidos por WhatsApp?</summary><p>Em "Pedidos por WhatsApp" copia um link e envia-o à equipa. Cada trabalhador indica as datas no telemóvel e devolve o pedido por WhatsApp. Ao abrir o link do pedido e confirmar, as férias ficam marcadas. Não são necessárias contas nem servidores.</p></details>
+    <details><summary>O feriado municipal é obrigatório?</summary><p>Apenas quando está previsto no contrato de trabalho, no contrato coletivo ou é uso da empresa (art. 235.º). Por isso pode ser ativado ou desativado. As datas provêm de fontes públicas e podem ser alteradas; confirme a do seu concelho junto da câmara municipal. <a href="feriado-municipal/">Consulte o feriado municipal de 2027 de cada concelho</a>.</p></details>
+    <details><summary>Onde ficam os dados?</summary><p>Apenas neste computador, no browser. Nenhum dado é enviado para servidores. Use "Guardar cópia" para criar um ficheiro de segurança ou transferir os dados para outro computador.</p></details>
   </section>
 </main>
 
 <div id="print"></div>
 <footer>
-  <span>Mapa de Férias · feito em Portugal · não substitui aconselhamento jurídico</span>
+  <span>Mapa de Férias · Não dispensa a consulta do contrato coletivo aplicável nem aconselhamento jurídico.</span>
   <nav><a href="#precos">Preços</a><a href="#perguntas">Perguntas</a><a href="feriado-municipal/">Feriados municipais 2027</a><a href="https://pedrovaz02.github.io/pontes-2027/">Planeador de Pontes 2027</a></nav>
 </footer>
 </div>
@@ -455,26 +457,26 @@ body.pedir #pedirView{display:block}
 <div id="toast" role="status" aria-live="polite"></div>
 
 <dialog id="dBulk">
-  <h2>Colar lista de nomes</h2>
-  <p>Um nome por linha. Podes copiar uma coluna de uma folha de Excel.</p>
+  <h2>Importar lista de trabalhadores</h2>
+  <p>Um nome por linha. Pode colar uma coluna de uma folha de Excel.</p>
   <textarea id="tBulk" placeholder="Ana Martins&#10;Bruno Costa&#10;Carla Sousa"></textarea>
   <div class="dlg-actions"><button class="btn ghost" data-close>Cancelar</button><button class="btn" id="bBulkOk">Adicionar</button></div>
 </dialog>
 <dialog id="dPay">
-  <h2>Chegaste ao limite da versão grátis</h2>
+  <h2>Limite da versão gratuita</h2>
   <p id="payText"></p>
-  <div class="dlg-actions"><button class="btn ghost" data-close>Agora não</button><a class="btn ghost" href="#precos" data-close>Ver preços</a><button class="btn" id="bPayLic">Tenho licença</button></div>
+  <div class="dlg-actions"><button class="btn ghost" data-close>Agora não</button><a class="btn ghost" href="#precos" data-close>Ver preços</a><button class="btn" id="bPayLic">Ativar licença</button></div>
 </dialog>
 <dialog id="dLic">
   <h2>Ativar licença</h2>
-  <p>Cola a chave que recebeste por email depois da compra.</p>
+  <p>Introduza a chave de licença recebida por email após a compra.</p>
   <input id="iLic" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX" autocomplete="off">
   <div class="msg" id="licMsg"></div>
   <div class="dlg-actions"><button class="btn ghost" data-close>Fechar</button><button class="btn" id="bLicOk">Ativar</button></div>
 </dialog>
 <dialog id="dLink">
   <h2>Pedidos de férias por WhatsApp</h2>
-  <p>Manda este link à equipa (por exemplo, no grupo de WhatsApp). Cada pessoa escolhe as datas no telemóvel e devolve-te o pedido. Tocas no link do pedido e as férias ficam marcadas aqui.</p>
+  <p>Envie este link à equipa (por exemplo, no grupo de WhatsApp). Cada trabalhador indica as datas no telemóvel e devolve o pedido. Ao abrir o link do pedido, as férias ficam marcadas aqui.</p>
   <input id="iLink" readonly aria-label="Link para a equipa">
   <div class="dlg-actions"><button class="btn ghost" data-close>Fechar</button><button class="btn ghost" id="bCopyLink"><svg class="i"><use href="#i-copy"/></svg>Copiar link</button><a class="btn" id="aWaLink" target="_blank" rel="noopener"><svg class="i"><use href="#i-chat"/></svg>Enviar por WhatsApp</a></div>
 </dialog>
@@ -501,7 +503,7 @@ const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","ag
 const DSEM = ["D","S","T","Q","Q","S","S"];
 const DIAS = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
 const SEMANA = [1, 2, 3, 4, 5, 6, 0];
-const CORES = ["#1F4E5F","#2B6A80","#8A5A00","#6B4E9E","#2E7D4F","#B4532A","#4F6D7A","#9E3B5B"];
+const CORES = ["#EAF0F7"];
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const uid = () => Math.random().toString(36).slice(2, 10);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -655,8 +657,8 @@ $$("dialog").forEach(d => d.addEventListener("click", ev => { if (ev.target === 
 $$("[data-close]").forEach(b => b.addEventListener("click", () => b.closest("dialog").close()));
 function paywall(kind) {
   $("#payText").textContent = kind === "emp"
-    ? "Várias empresas no mesmo sítio é do plano Contabilista (99 €/ano, empresas e trabalhadores ilimitados)."
-    : `A versão grátis dá para até ${CFG.FREE_WORKERS} trabalhadores. O plano Empresa (29 €/ano) não tem limite.`;
+    ? "A gestão de várias empresas está incluída no plano Contabilista (99 €/ano, empresas e trabalhadores ilimitados)."
+    : `A versão gratuita permite até ${CFG.FREE_WORKERS} trabalhadores. O plano Empresa (29 €/ano) não tem limite.`;
   dlg("#dPay");
 }
 
@@ -677,9 +679,9 @@ function renderSettings() {
 function renderDeadline() {
   const e = emp(), days = Math.round((D(`${e.ano}-04-15`) - D(todayISO())) / 864e5);
   $("#hYear").textContent = e.ano;
-  if (days > 0) { $("#dlNum").textContent = days; $("#dlTxt").textContent = `${days === 1 ? "dia" : "dias"} até 15 de abril de ${e.ano}, o prazo para afixar o mapa de férias.`; }
-  else if (days === 0) { $("#dlNum").textContent = "Hoje"; $("#dlTxt").textContent = "é o último dia para afixar o mapa de férias."; }
-  else { $("#dlNum").textContent = "15 abr"; $("#dlTxt").textContent = `O prazo de ${e.ano} já passou: o mapa fica afixado até 31 de outubro.`; }
+  if (days > 0) { $("#dlNum").textContent = plural(days, "dia"); $("#dlTxt").textContent = `até 15 de abril de ${e.ano}, data-limite para elaborar e afixar o mapa de férias.`; }
+  else if (days === 0) { $("#dlNum").textContent = "Hoje"; $("#dlTxt").textContent = "é a data-limite para afixar o mapa de férias."; }
+  else { $("#dlNum").textContent = "15 de abril"; $("#dlTxt").textContent = `O prazo de ${e.ano} terminou. O mapa permanece afixado até 31 de outubro.`; }
 }
 function renderHolidays() {
   const e = emp(), { hol } = ctx(e), c = concelho(e.concelho), mun = c ? (c[4][e.ano] || []) : [];
@@ -687,9 +689,9 @@ function renderHolidays() {
   if (c && e.municipal && mun.length) sum += ` · municipal de ${esc(c[0])}: ${mun.map(fmt).join(", ")}`;
   $("#holSum").innerHTML = sum + "</span>";
   let note = "";
-  if (!e.concelho) note = `<span class="chip note">${ic("pin")}Escolhe o concelho para juntar o feriado municipal</span>`;
-  else if (!c) note = `<span class="chip note">${ic("alert")}Concelho não encontrado: escolhe da lista</span>`;
-  else if (!mun.length) note = `<span class="chip note">${ic("alert")}Feriado municipal de ${esc(c[0])} por confirmar: pergunta à câmara</span>`;
+  if (!e.concelho) note = `<span class="chip note">${ic("pin")}Indique o concelho para incluir o feriado municipal</span>`;
+  else if (!c) note = `<span class="chip note">${ic("alert")}Concelho não encontrado: escolha um da lista</span>`;
+  else if (!mun.length) note = `<span class="chip note">${ic("alert")}Feriado municipal de ${esc(c[0])} por confirmar junto da câmara municipal</span>`;
   $("#holNote").innerHTML = note;
   $("#holChips").innerHTML = [...hol.entries()].sort().map(([d, n]) => `<span class="chip hol${n.includes("Feriado municipal") ? " mun" : ""}" title="${esc(n)}">${fmt(d)} · ${esc(n.replace(/ \(.*\)/, ""))}</span>`).join("");
 }
@@ -704,14 +706,14 @@ function renderStats() {
     .map(([v, l, c = ""]) => `<div class="kpi ${c}"><b>${v}</b><span>${l}</span></div>`).join("");
   const ready = $("#ready");
   ready.className = "ready" + (avisos || !e.trab.length ? " warn" : "");
-  ready.innerHTML = !e.trab.length ? `${ic("alert")}Junta a equipa no passo 2 para o mapa ter conteúdo.`
-    : avisos ? `${ic("alert")}Há ${plural(avisos, "aviso")} na equipa. Podes imprimir na mesma, mas convém resolver primeiro.`
-    : `${ic("check")}Tudo certo. O mapa está pronto a imprimir.`;
+  ready.innerHTML = !e.trab.length ? `${ic("alert")}Adicione os trabalhadores no passo 2.`
+    : avisos ? `${ic("alert")}Há ${plural(avisos, "aviso")} na equipa. Pode imprimir, mas recomenda-se resolvê-los primeiro.`
+    : `${ic("check")}Sem avisos. O mapa está pronto a imprimir.`;
 }
 function renderWorkers() {
   const e = emp(), { forW } = ctx(e);
   if (!e.trab.length) {
-    $("#wBody").innerHTML = `<tr><td colspan="5" class="empty">${ic("users")}<div>Ainda não há ninguém na equipa.</div><div style="margin-top:12px"><button class="btn sm" data-first>${ic("plus")}Juntar o primeiro trabalhador</button></div></td></tr>`;
+    $("#wBody").innerHTML = `<tr><td colspan="5" class="empty">${ic("users")}<div>Ainda não existem trabalhadores.</div><div style="margin-top:12px"><button class="btn sm" data-first>${ic("plus")}Adicionar trabalhador</button></div></td></tr>`;
     return;
   }
   $("#wBody").innerHTML = e.trab.map(w => {
@@ -753,7 +755,7 @@ function calendarHTML(e, interactive) {
 }
 function renderCalendar() {
   const e = emp(), sl = $$("#cal .cal-scroll").map(x => x.scrollLeft);
-  $("#cal").innerHTML = e.trab.length ? calendarHTML(e, true) : `<div class="empty">${ic("calendar")}<div>O calendário aparece quando juntares a equipa.</div></div>`;
+  $("#cal").innerHTML = e.trab.length ? calendarHTML(e, true) : `<div class="empty">${ic("calendar")}<div>O calendário é apresentado depois de adicionar trabalhadores.</div></div>`;
   $$("#cal .cal-scroll").forEach((x, i) => { x.scrollLeft = sl[i] || 0; });
   const over = e.maxAus > 0 ? [...absences(e)].filter(([, c]) => c > e.maxAus).map(([d]) => d).sort() : [];
   $("#alerts").hidden = !over.length;
@@ -761,7 +763,7 @@ function renderCalendar() {
 }
 function renderLic() {
   const t = tier();
-  $("#licState").textContent = t === "gratis" ? `Estás na versão grátis: 1 empresa, até ${CFG.FREE_WORKERS} trabalhadores.`
+  $("#licState").textContent = t === "gratis" ? `Versão gratuita: 1 empresa, até ${CFG.FREE_WORKERS} trabalhadores.`
     : `Licença ${t === "contabilista" ? "Contabilista" : "Empresa"} ativa${S.lic.email ? " (" + S.lic.email + ")" : ""}.`;
   $$(".buy").forEach(a => {
     if (CFG.BUY_URL) { a.href = CFG.BUY_URL; a.target = "_blank"; a.rel = "noopener"; }  // o plano escolhe-se na página do Gumroad
@@ -842,7 +844,7 @@ $("#wBody").addEventListener("click", ev => {
   } else if (ds.addp) {
     const row = t.closest("tr"), a = row.querySelector("[data-a]").value, b = row.querySelector("[data-b]").value || a;
     const w = e.trab.find(x => x.id === ds.addp), add = expandRange(a, b, forW(w));
-    if (!add.length) return toast("Escolhe o primeiro e o último dia (o período tem de ter pelo menos um dia de trabalho).", { err: true });
+    if (!add.length) return toast("Indique o primeiro e o último dia (o período tem de incluir pelo menos um dia de trabalho).", { err: true });
     w.dias = [...new Set([...w.dias, ...add])].sort(); openAdd.delete(w.id); changed();
     toast(`${w.nome || "Trabalhador"}: ${plural(add.length, "dia marcado", "dias marcados")}`);
   } else if (ds.delp) {
@@ -946,12 +948,12 @@ async function verify(key) {
     const r = await fetch("https://api.gumroad.com/v2/licenses/verify", { method: "POST",
       body: new URLSearchParams({ product_id: CFG.GUMROAD_PRODUCT_ID, license_key: key, increment_uses_count: "false" }) });
     const j = await r.json();
-    if (!j.success) return { ok: false, msg: "Chave não encontrada. Confirma que a copiaste toda." };
+    if (!j.success) return { ok: false, msg: "Chave não encontrada. Verifique se a copiou por completo." };
     const p = j.purchase;
     if (p.refunded || p.chargebacked || p.disputed) return { ok: false, msg: "Esta compra foi reembolsada." };
-    if (p.subscription_ended_at || p.subscription_failed_at) return { ok: false, msg: "A subscrição terminou. Renova no Gumroad." };
+    if (p.subscription_ended_at || p.subscription_failed_at) return { ok: false, msg: "A subscrição terminou. Pode renová-la no Gumroad." };
     return { ok: true, key, tier: /contabil/i.test(p.variants || "") ? "contabilista" : "empresa", email: p.email, at: Date.now() };
-  } catch (_) { return { ok: false, net: true, msg: "Sem ligação à internet. Tenta outra vez." }; }
+  } catch (_) { return { ok: false, net: true, msg: "Sem ligação à internet. Tente novamente." }; }
 }
 const openLic = () => { $("#iLic").value = S.lic?.key || ""; $("#licMsg").textContent = ""; dlg("#dLic"); };
 bind("#bLic", "click", openLic);
@@ -971,7 +973,7 @@ if (S.lic?.ok && Date.now() - (S.lic.at || 0) > 7 * 864e5) verify(S.lic.key).the
 bind("#bPedidos", "click", () => {
   const e = emp(), link = base() + "#pedir=" + enc({ e: e.nome, c: e.concelho, a: e.ano });
   $("#iLink").value = link;
-  $("#aWaLink").href = "https://wa.me/?text=" + encodeURIComponent(`Olá! Para pedirem as vossas férias de ${e.ano}, escolham as datas aqui e enviem-me o pedido: ${link}`);
+  $("#aWaLink").href = "https://wa.me/?text=" + encodeURIComponent(`Pedido de férias de ${e.ano}: indique as datas neste link e envie o pedido. ${link}`);
   dlg("#dLink");
 });
 bind("#bCopyLink", "click", () => navigator.clipboard.writeText($("#iLink").value).then(() => toast("Link copiado"), () => $("#iLink").select()));
@@ -982,7 +984,7 @@ function showPedir(o) {
   PV = { empresa: String(o.e || "").slice(0, 80), conc: concelho(String(o.c || "")) ? String(o.c) : "", ano, pers: [["", ""]] };
   document.body.classList.add("pedir");
   $("#pvTitle").textContent = `Pedido de férias ${ano}`;
-  $("#pvSub").textContent = (PV.empresa ? `Para ${PV.empresa}. ` : "") + "Escolhe as datas e envia o pedido pelo WhatsApp.";
+  $("#pvSub").textContent = (PV.empresa ? `Para ${PV.empresa}. ` : "") + "Indique as datas e envie o pedido por WhatsApp.";
   renderPedir(); window.scrollTo(0, 0);
 }
 function renderPedir() {
@@ -997,7 +999,7 @@ function pedirEstimate() {
   const valid = PV.pers.filter(([a, b]) => a && b && a <= b), n = valid.reduce((s, [a, b]) => s + expandRange(a, b, isW).length, 0);
   $("#pvEst").innerHTML = valid.length
     ? `${ic("calendar")}<span><b>${plural(n, "dia útil", "dias úteis")}</b> de férias, sem contar fins de semana e feriados${PV.conc ? " de " + esc(PV.conc) : ""}. A empresa confirma a contagem final.</span>`
-    : `${ic("calendar")}<span>Escolhe o primeiro e o último dia de férias.</span>`;
+    : `${ic("calendar")}<span>Indique o primeiro e o último dia de férias.</span>`;
 }
 $("#pvPers").addEventListener("input", ev => {
   const row = ev.target.closest(".per-row"); if (!row) return;
@@ -1010,10 +1012,10 @@ bind("#pvAdd", "click", () => { PV.pers.push(["", ""]); renderPedir(); });
 function pedirMessage() {
   const nome = $("#pvNome").value.trim().slice(0, 80);
   const pers = PV.pers.filter(([a, b]) => a && b).map(([a, b]) => a <= b ? [a, b] : [b, a]);
-  if (!nome) { toast("Escreve o teu nome.", { err: true }); $("#pvNome").focus(); return null; }
-  if (!pers.length) { toast("Escolhe pelo menos um período de férias.", { err: true }); return null; }
+  if (!nome) { toast("Indique o seu nome.", { err: true }); $("#pvNome").focus(); return null; }
+  if (!pers.length) { toast("Indique pelo menos um período de férias.", { err: true }); return null; }
   const link = base() + "#aceitar=" + enc({ n: nome, p: pers, a: PV.ano });
-  return `Olá! Pedido de férias de ${nome}${PV.empresa ? " (" + PV.empresa + ")" : ""}:\n` +
+  return `Pedido de férias de ${nome}${PV.empresa ? " (" + PV.empresa + ")" : ""}:\n` +
     pers.map(([a, b]) => `• ${fmtHuman(a, b)} de ${PV.ano}`).join("\n") + `\n\nPara aceitar e marcar no Mapa de Férias: ${link}`;
 }
 bind("#pvSend", "click", () => { const m = pedirMessage(); if (m) window.open("https://wa.me/?text=" + encodeURIComponent(m), "_blank", "noopener"); });
