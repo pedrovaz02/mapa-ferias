@@ -490,8 +490,8 @@ body.pedir #pedirView{display:block}
 <script>
 const CFG = {
   FREE_WORKERS: 3,
-  GUMROAD_PRODUCT_ID: "",   // product_id da licença no Gumroad (preencher quando o produto existir)
-  BUY_URL: "",              // link de compra no Gumroad; ?variant= escolhe o plano
+  GUMROAD_PRODUCT_ID: "9lByk0guLmgjqdElLBJwyw==",  // produto "Mapa de Férias online: licença anual"
+  BUY_URL: "",  // https://vazpedro.gumroad.com/l/mapa-ferias-licenca quando o produto for publicado
   SITE: "pedrovaz02.github.io/mapa-ferias"
 };
 const KEY = "mapaFerias.v1";
@@ -764,7 +764,7 @@ function renderLic() {
   $("#licState").textContent = t === "gratis" ? `Estás na versão grátis: 1 empresa, até ${CFG.FREE_WORKERS} trabalhadores.`
     : `Licença ${t === "contabilista" ? "Contabilista" : "Empresa"} ativa${S.lic.email ? " (" + S.lic.email + ")" : ""}.`;
   $$(".buy").forEach(a => {
-    if (CFG.BUY_URL) { a.href = CFG.BUY_URL + "?variant=" + encodeURIComponent(a.dataset.tier === "contabilista" ? "Contabilista" : "Empresa"); a.target = "_blank"; a.rel = "noopener"; }
+    if (CFG.BUY_URL) { a.href = CFG.BUY_URL; a.target = "_blank"; a.rel = "noopener"; }  // o plano escolhe-se na página do Gumroad
     else { a.removeAttribute("href"); a.textContent = "Brevemente"; a.classList.add("ghost"); }
   });
 }
