@@ -4,223 +4,485 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapa de Férias 2027 online e grátis, com feriados municipais</title>
-<meta name="description" content="Faz o mapa de férias da tua empresa em minutos: feriados nacionais e municipais dos 308 concelhos, dias úteis contados sozinhos, regra dos 10 dias seguidos e PDF pronto a afixar. Grátis até 3 trabalhadores.">
-<meta property="og:title" content="Mapa de Férias 2027: pronto a afixar em 5 minutos">
-<meta property="og:description" content="Feriados municipais dos 308 concelhos, dias úteis e regras do Código do Trabalho. Os dados ficam no teu computador.">
+<meta name="description" content="Faz o mapa de férias da tua empresa em minutos: feriados dos 308 concelhos, folgas e fins de semana contados pelo Código do Trabalho, pedidos de férias por WhatsApp e mapa pronto a afixar. Grátis, sem registo.">
+<link rel="canonical" href="https://pedrovaz02.github.io/mapa-ferias/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:url" content="https://pedrovaz02.github.io/mapa-ferias/">
+<meta property="og:title" content="Mapa de Férias 2027: pronto a afixar em minutos">
+<meta property="og:description" content="Feriados dos 308 concelhos, folgas contadas por lei e pedidos de férias por WhatsApp. Grátis e sem registo.">
+<meta property="og:image" content="https://pedrovaz02.github.io/mapa-ferias/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1F4E5F">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mapa de Férias","url":"https://pedrovaz02.github.io/mapa-ferias/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pt-PT","description":"Mapa de férias online para empresas em Portugal, com feriados municipais dos 308 concelhos, folgas contadas pelo Código do Trabalho e pedidos de férias por WhatsApp.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 <style>
-:root{--bg:#F6F1E9;--card:#fff;--ink:#1F2A30;--muted:#5F6B72;--accent:#1F4E5F;--gold:#E8A33D;--vac:#F2B04B;--vac-soft:#FCE3B6;--hol:#F6C9C4;--we:#EEF1F2;--line:#E6E0D6;--bad:#B3261E;--ok:#2E7D4F}
+:root{
+  --bg:#F6F1E9;--card:#fff;--ink:#1F2A30;--muted:#5F6B72;--faint:#8A949A;
+  --accent:#1F4E5F;--accent-2:#2B6A80;--accent-soft:#E4EEF0;--gold:#E8A33D;--gold-soft:#FCE9C8;
+  --vac:#F2B04B;--hol:#F6C9C4;--we:#ECEFF1;--line:#E8E2D8;--line-2:#F2EDE5;
+  --ok:#2E7D4F;--ok-soft:#E2F2E8;--warn:#8A5A00;--warn-soft:#FFF1D2;--bad:#B3261E;--bad-soft:#FBE3E1;
+  --r:16px;--shadow:0 1px 2px rgba(31,42,48,.04),0 8px 28px rgba(31,42,48,.06)
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-header{padding:34px 0 10px;display:flex;flex-wrap:wrap;gap:14px;align-items:end;justify-content:space-between}
-h1{font:700 clamp(28px,4.4vw,44px)/1.08 Fraunces,Georgia,serif;color:var(--accent)}
-.lead{color:var(--muted);font-size:17px;margin-top:8px;max-width:62ch}
-h2{font:700 22px Fraunces,Georgia,serif;color:var(--accent);margin-bottom:10px}
-.card{background:var(--card);border-radius:16px;padding:20px;border:1px solid var(--line);margin:14px 0}
-.grid-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;align-items:end}
-label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px}
-input,select,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
-textarea{min-height:120px}
-.check{display:flex;gap:8px;align-items:center;font-size:14px;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:500;margin:0}
-.check input{width:auto}
-.btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:10px 16px;font:600 14px Inter,sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap}
-.btn.light{background:#fff;color:var(--accent);border:1px solid var(--line)}
-.btn.gold{background:var(--gold)}
-.btn.small{padding:6px 11px;font-size:13px}
-.btn:disabled{opacity:.5;cursor:default}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip{background:var(--bg);border-radius:999px;padding:4px 10px;font-size:13px}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid rgba(43,106,128,.35);outline-offset:2px}
+.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* barra de topo */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(246,241,233,.9);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:10px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font:700 19px Fraunces,Georgia,serif;color:var(--accent);text-decoration:none;margin-right:auto}
+.brand svg{width:34px;height:34px}
+.saved{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-right:6px}
+.saved .i{width:15px;height:15px;color:var(--ok)}
+.top-actions{display:flex;gap:8px}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:999px;padding:9px 16px;font:600 14px/1.2 Inter,sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s,color .15s,transform .05s}
+.btn:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn:active{transform:translateY(1px)}
+.btn .i{width:16px;height:16px}
+.btn.ghost{background:#fff;color:var(--accent);border-color:var(--line)}
+.btn.ghost:hover{background:var(--accent-soft);border-color:var(--accent-soft)}
+.btn.gold{background:var(--gold);border-color:var(--gold)}
+.btn.gold:hover{background:#D8922C;border-color:#D8922C}
+.btn.sm{padding:6px 12px;font-size:13px}
+.btn.icon{padding:8px;border-radius:10px}
+.btn.danger:hover{background:var(--bad-soft);border-color:var(--bad-soft);color:var(--bad)}
+
+/* abertura */
+.hero{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:center;padding:42px 0 20px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:5px 12px;border-radius:999px}
+.eyebrow .i{width:15px;height:15px}
+h1{font:700 clamp(30px,4.6vw,50px)/1.05 Fraunces,Georgia,serif;color:var(--accent);margin:16px 0 12px;letter-spacing:-.5px;max-width:18ch}
+.lead{color:var(--muted);font-size:17px;max-width:58ch}
+.usp{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:10px 26px;margin-top:20px}
+.usp li{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:500}
+.usp .i{color:var(--ok)}
+.deadline{background:var(--accent);color:#fff;border-radius:20px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.deadline small{display:flex;gap:7px;align-items:center;font-size:12px;letter-spacing:.7px;text-transform:uppercase;opacity:.85;font-weight:600}
+.deadline small .i{width:15px;height:15px}
+.deadline b{display:block;font:700 60px/1 Fraunces,Georgia,serif;margin:14px 0 6px}
+.deadline span{font-size:14px;opacity:.92;display:block}
+.deadline em{display:block;font-style:normal;font-size:12px;opacity:.65;margin-top:12px}
+.deadline::after{content:"";position:absolute;right:-50px;top:-50px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.07)}
+
+/* cartões e passos */
+.card{background:var(--card);border-radius:var(--r);padding:24px;border:1px solid var(--line);box-shadow:var(--shadow);margin:16px 0}
+.step-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.step-n{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+h2{font:700 23px/1.2 Fraunces,Georgia,serif;color:var(--accent)}
+.step-head p{color:var(--muted);font-size:14px;width:100%;padding-left:44px;margin-top:-8px}
+.step-head .actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.banner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;background:var(--gold-soft);border:1px solid #F1D49E;border-radius:14px;padding:12px 16px;font-size:14px;margin-top:6px}
+.banner span{display:flex;gap:8px;align-items:center}
+
+/* formulário */
+.form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input:hover,select:hover,textarea:hover{border-color:#D9D0C2}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(43,106,128,.15)}
+textarea{min-height:140px;resize:vertical}
+.hint{font-size:12px;color:var(--faint);margin-top:6px}
+.toggles{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.switch{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-size:14px;font-weight:500;user-select:none;background:#fff}
+.switch:hover{border-color:#D9D0C2}
+.switch input{appearance:none;-webkit-appearance:none;width:34px;height:20px;border-radius:999px;background:#D3D9DC;position:relative;cursor:pointer;transition:background .15s;border:0;padding:0;flex:none}
+.switch input::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.switch input:checked{background:var(--accent)}
+.switch input:checked::after{transform:translateX(14px)}
+.switch input:focus{box-shadow:0 0 0 3px rgba(43,106,128,.2)}
+.hols{margin-top:18px;border-top:1px solid var(--line-2);padding-top:14px}
+.hols summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent);list-style:none;display:flex;align-items:center;gap:8px}
+.hols summary::-webkit-details-marker{display:none}
+.hols summary::after{content:"Ver todos";margin-left:auto;font-weight:500;font-size:13px;color:var(--muted);text-decoration:underline}
+.hols[open] summary::after{content:"Esconder"}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center}
+.chip{background:var(--line-2);border-radius:999px;padding:4px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+.chip .i{width:14px;height:14px}
 .chip.hol{background:var(--hol)}
-.chip.vac{background:var(--vac-soft);display:inline-flex;gap:6px;align-items:center}
-.chip button{border:0;background:none;cursor:pointer;color:var(--muted);font-size:15px;line-height:1}
-.banner{background:#FFF7E6;border:1px solid #F3D9A4;border-radius:12px;padding:10px 14px;font-size:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-table{border-collapse:collapse}
-.workers{width:100%}
-.workers th{font-size:12px;color:var(--muted);text-align:left;font-weight:600;text-transform:uppercase;letter-spacing:.4px;padding:8px 6px;border-bottom:1px solid var(--line)}
-.workers td{padding:10px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-.workers td input{padding:7px 9px}
-.folgas{display:flex;gap:3px;align-items:center;margin-top:6px;font-size:12px;color:var(--muted)}
-.fd{width:24px;height:24px;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--muted);font:600 11px Inter,sans-serif;cursor:pointer;padding:0}
+.chip.mun{background:var(--gold-soft);font-weight:600}
+.chip.note{background:var(--warn-soft);color:var(--warn);font-weight:500}
+.chip.vac{background:var(--gold-soft);font-weight:500}
+.chip button{border:0;background:none;cursor:pointer;color:var(--muted);display:grid;place-items:center;padding:0;border-radius:50%}
+.chip button:hover{color:var(--bad)}
+.chip button .i{width:14px;height:14px}
+
+/* equipa */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.kpi{background:var(--bg);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font:700 26px/1.15 Fraunces,Georgia,serif;color:var(--accent)}
+.kpi b small{font:500 14px Inter,sans-serif;color:var(--muted)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi.bad{background:var(--bad-soft)}.kpi.bad b{color:var(--bad)}
+.team{width:100%;border-collapse:separate;border-spacing:0}
+.team th{font-size:12px;color:var(--muted);text-align:left;font-weight:600;padding:0 10px 8px;border-bottom:1px solid var(--line)}
+.team td{padding:14px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}
+.team tr:last-child td{border-bottom:0}
+.who{display:flex;gap:10px;align-items:flex-start}
+.who>div{flex:1;min-width:0}
+.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;flex:none;margin-top:1px}
+.name-in{border-color:transparent;background:transparent;padding:6px 8px;font-weight:600}
+.folgas{display:flex;align-items:center;gap:3px;margin-top:3px;padding-left:8px;font-size:12px;color:var(--faint)}
+.folgas em{font-style:normal;margin-right:5px}
+.fd{width:25px;height:25px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--muted);font:600 11px Inter,sans-serif;cursor:pointer;padding:0;transition:background .12s,color .12s,border-color .12s}
+.fd:hover{border-color:var(--accent-2);color:var(--accent)}
 .fd.on{background:var(--muted);border-color:var(--muted);color:#fff}
-.addp{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
-.addp input{width:150px}
-.status{font-size:13px;font-weight:600}
-.status.ok{color:var(--ok)}.status.warn{color:#9A6400}.status.bad{color:var(--bad)}
-.num{font:700 20px Fraunces,Georgia,serif;color:var(--accent)}
-.cal-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-top:10px}
-.cal{font-size:11px;min-width:100%}
-.cal th,.cal td{border-right:1px solid #fff;border-bottom:1px solid #fff;text-align:center;min-width:24px;height:24px;padding:0}
-.cal th.name,.cal td.name{position:sticky;left:0;background:#fff;text-align:left;padding:0 8px;min-width:150px;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500;z-index:1;border-right:1px solid var(--line)}
-.cal thead th{background:#FAF7F2;color:var(--muted);font-weight:600}
-.cal td.we,.cal th.we{background:var(--we);color:#9AA3A8}
-.cal td.hol,.cal th.hol{background:var(--hol)}
+.dir-in{width:66px;text-align:center}
+.used{font-size:13px;color:var(--muted)}
+.used b{font:700 19px Fraunces,Georgia,serif;color:var(--ink)}
+.bar{height:6px;background:var(--line-2);border-radius:999px;overflow:hidden;margin:5px 0 8px;max-width:280px}
+.bar i{display:block;height:100%;border-radius:999px;background:var(--gold);transition:width .25s}
+.bar.ok i{background:var(--ok)}.bar.bad i{background:var(--bad)}
+.none{font-size:13px;color:var(--faint)}
+.addp{display:none;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+.addp.open{display:flex}
+.addp input{width:152px;padding:7px 9px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:5px 11px;border-radius:999px}
+.pill .i{width:14px;height:14px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.m-lbl{display:none}
+.empty{padding:34px 10px;text-align:center;color:var(--muted)}
+.empty .i{width:34px;height:34px;color:var(--faint);margin-bottom:8px}
+
+/* calendário */
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:4px 0 10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.alert{display:flex;gap:10px;align-items:flex-start;background:var(--bad-soft);color:var(--bad);border-radius:12px;padding:11px 14px;font-size:14px;font-weight:500;margin:8px 0}
+.month-title{display:flex;align-items:baseline;gap:10px;font-weight:700;color:var(--accent);margin:20px 0 7px;font-size:15px}
+.month-title small{font-weight:500;color:var(--faint);font-size:12px}
+.cal-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+.cal{border-collapse:separate;border-spacing:0;font-size:11px;width:100%;min-width:980px;table-layout:fixed;user-select:none;-webkit-user-select:none}
+.cal th,.cal td{text-align:center;height:27px;padding:0;border-right:1px solid #fff;border-bottom:1px solid #fff}
+.cal thead th{background:#FAF7F2;color:var(--muted);font-weight:600;line-height:1.15;padding:3px 0}
+.cal .name{position:sticky;left:0;background:#fff;text-align:left;padding:0 10px;width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500;z-index:1;border-right:1px solid var(--line);font-size:12px}
+.cal thead .name{background:#FAF7F2}
+.cal .pad{background:#fff}
+.cal .we{background:var(--we);color:#9AA3A8}
+.cal .hol{background:var(--hol)}
 .cal td.vac{background:var(--vac)}
 .cal td.work{cursor:pointer}
-.cal td.work:hover{outline:2px solid var(--accent);outline-offset:-2px}
-.cal th.over{background:var(--bad);color:#fff}
-.month-title{font-weight:700;color:var(--accent);margin:16px 0 0;font-size:15px}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:6px}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.alerts{margin-top:8px;font-size:14px;color:var(--bad)}
-.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.price{border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:8px;align-content:start}
-.price b{font:700 28px Fraunces,Georgia,serif;color:var(--accent)}
-.price ul{padding-left:18px;color:var(--muted);font-size:14px}
-.faq h3{font-size:16px;margin:14px 0 4px}
-.faq p{color:var(--muted)}
-footer{color:var(--muted);font-size:13px;padding:24px 0 50px}
-dialog{border:0;border-radius:16px;padding:22px;max-width:460px;width:calc(100% - 32px);margin:auto}
+.cal td.work:hover{box-shadow:inset 0 0 0 2px var(--accent-2)}
+.cal td.sel{background:#9CC3CF}
+.cal td.sel.rm{background:#E9A49E}
+.cal th.today{box-shadow:inset 0 -3px 0 var(--gold);color:var(--ink)}
+.cal tr.aus td{background:#FAF7F2;color:var(--muted);font-size:10px;font-weight:700;height:22px}
+.cal tr.aus td.over{background:var(--bad);color:#fff}
+.cal tr.aus .name{font-size:11px;font-weight:600}
+
+/* imprimir, preços, perguntas */
+.ready{display:flex;gap:10px;align-items:center;font-size:14px;padding:12px 14px;border-radius:12px;background:var(--ok-soft);color:var(--ok);font-weight:500}
+.ready.warn{background:var(--warn-soft);color:var(--warn)}
+.todo{list-style:none;display:grid;gap:8px;margin:16px 0;color:var(--muted);font-size:14px}
+.todo li{display:flex;gap:10px;align-items:flex-start}
+.todo .i{color:var(--accent);margin-top:2px}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.price{border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.price.hl{border:2px solid var(--accent)}
+.price h3{font-size:15px;font-weight:600}
+.price b{font:700 34px/1 Fraunces,Georgia,serif;color:var(--accent)}
+.price b small{font:500 14px Inter,sans-serif;color:var(--muted)}
+.price ul{list-style:none;display:grid;gap:7px;font-size:14px;color:var(--muted);flex:1;margin:4px 0}
+.price li{display:flex;gap:8px;align-items:flex-start}
+.price li .i{color:var(--ok);width:16px;height:16px;margin-top:3px}
+.lic{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;font-size:14px;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line-2);padding:15px 0}
+.faq details:last-of-type{border-bottom:0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);transition:transform .15s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin-top:8px;max-width:75ch}
+footer{color:var(--muted);font-size:13px;padding:26px 0 70px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;border-top:1px solid var(--line);margin-top:28px}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+
+/* diálogos e avisos */
+dialog{border:0;border-radius:20px;padding:24px;max-width:500px;width:calc(100% - 32px);margin:auto;box-shadow:0 24px 70px rgba(0,0,0,.25);color:var(--ink)}
 dialog::backdrop{background:rgba(31,42,48,.45)}
-dialog h2{margin-bottom:8px}
-dialog p{color:var(--muted);margin-bottom:12px}
-.msg{font-size:14px;margin-top:8px}
+dialog h2{margin-bottom:6px}
+dialog p{color:var(--muted);margin-bottom:14px}
+.dlg-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
+.msg{font-size:14px;margin-top:8px;min-height:20px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:12px 16px;border-radius:14px;display:flex;gap:16px;align-items:center;font-size:14px;box-shadow:0 12px 34px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:calc(100% - 32px)}
+#toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#toast.err{background:var(--bad)}
+#toast button{background:none;border:0;color:var(--gold);font:700 14px Inter,sans-serif;cursor:pointer;padding:0}
+
+/* página do trabalhador: pedido de férias */
+#pedirView{display:none;max-width:560px;margin:28px auto}
+body.pedir .hero,body.pedir #app,body.pedir #topActions,body.pedir .saved{display:none}
+body.pedir #pedirView{display:block}
+.per-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.est{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);border-radius:12px;padding:12px 14px;margin-top:16px;font-size:14px}
+.est .i{color:var(--accent);margin-top:2px}
+
 #print{display:none}
-@media(max-width:700px){header{padding:24px 0 6px}.workers thead{display:none}.workers tr{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);padding:8px 0}.workers td{border:0;padding:4px 6px}.workers td.wide{grid-column:1/-1}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:20px;padding-top:28px}.deadline b{font-size:48px}}
+@media(max-width:900px){.form{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .usp{grid-template-columns:1fr}
+  .team thead{display:none}
+  .team,.team tbody,.team tr,.team td{display:block}
+  .team tr{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .team tr:last-child{border-bottom:0}
+  .team td{border:0;padding:0}
+  .team .c-who{grid-column:1}.team .c-del{grid-column:2;grid-row:1}
+  .team .c-dir,.team .c-fer,.team .c-st{grid-column:1/-1}
+  .team .c-dir{display:flex;align-items:center;gap:10px;padding-left:46px}
+  .team .c-fer,.team .c-st{padding-left:46px}
+  .m-lbl{display:inline;font-size:13px;color:var(--muted)}
+}
+@media(max-width:640px){
+  .lbl{display:none}.saved{display:none}
+  .card{padding:18px}.step-head p{padding-left:0;margin-top:0}
+  .form{grid-template-columns:1fr}
+  .topbar .btn{padding:9px}
+}
 @media print{
   @page{size:A4 landscape;margin:10mm}
   body{background:#fff;font-size:10px}
-  #app,header,footer,.no-print{display:none!important}
+  .topbar,.hero,#app,footer,#toast,#pedirView,dialog{display:none!important}
   #print{display:block}
-  #print h1{font-size:20px;margin-bottom:2px}
+  #print h1{font-size:20px;margin:0 0 2px;max-width:none}
   #print .meta{color:#444;margin-bottom:8px}
   #print table{width:100%;margin-bottom:8px}
+  #print .sum{border-collapse:collapse}
   #print .sum td,#print .sum th{border:1px solid #999;padding:3px 5px;text-align:left;font-size:10px}
-  #print .cal{font-size:7px;width:100%;table-layout:fixed}
+  #print .cal{font-size:7px;width:100%;min-width:0;table-layout:fixed}
   #print .mblk{break-inside:avoid;page-break-inside:avoid}
-  #print .cal-scroll{overflow:visible;border:0;margin-top:2px}
-  #print .cal th,#print .cal td{min-width:0;height:13px;border:1px solid #ddd}
-  #print .cal th.name,#print .cal td.name{width:100px;min-width:0;max-width:none;position:static}
-  #print .cal td.vac{background:#F2B04B!important}
-  #print .cal td.hol,#print .cal th.hol{background:#F6C9C4!important}
-  #print .cal td.we,#print .cal th.we{background:#EEF1F2!important}
-  #print .month-title{font-size:9px;margin:4px 0 0}
+  #print .cal-scroll{overflow:visible;border:0;margin-top:2px;border-radius:0}
+  #print .cal th,#print .cal td{min-width:0;height:11px;border:1px solid #ddd}
+  #print .cal thead th{padding:1px 0;line-height:1.05}
+  #print .cal .name{width:100px;min-width:0;max-width:none;position:static;padding:0 3px;font-size:7px}
+  #print .cal tr.aus td{height:9px;font-size:6px}
+  #print .month-title{font-size:9px;margin:3px 0 0}
+  #print .month-title small{display:none}
   #print .foot{margin-top:10px;display:flex;justify-content:space-between;gap:20px}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.4-8.5 8.4 8.4 0 0 1 8.6 8.5z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+</svg>
+
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="./" aria-label="Mapa de Férias, início">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#1F4E5F"/><rect x="14" y="18" width="36" height="32" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M14 28h36M24 12v10M40 12v10" stroke="#fff" stroke-width="4" stroke-linecap="round"/><rect x="21" y="34" width="9" height="9" rx="2" fill="#E8A33D"/></svg>
+    Mapa de Férias
+  </a>
+  <span class="saved"><svg class="i"><use href="#i-shield"/></svg>Dados só neste computador</span>
+  <div id="topActions" class="top-actions">
+    <button class="btn ghost" id="bExport" title="Guardar uma cópia num ficheiro"><svg class="i"><use href="#i-download"/></svg><span class="lbl">Guardar cópia</span></button>
+    <button class="btn ghost" id="bImport" title="Abrir uma cópia guardada"><svg class="i"><use href="#i-upload"/></svg><span class="lbl">Abrir</span></button>
+    <input type="file" id="fImport" accept=".json,application/json" hidden>
+    <button class="btn gold" id="bPrint"><svg class="i"><use href="#i-printer"/></svg><span class="lbl">Imprimir</span></button>
+  </div>
+</div></div>
+
 <div class="wrap">
-<header>
+<header class="hero">
   <div>
-    <h1>Mapa de Férias <span id="hYear">2027</span></h1>
-    <p class="lead">Escolhe o concelho, escreve quem trabalha contigo e marca as férias. Os dias úteis, os feriados municipais e as regras do Código do Trabalho contam-se sozinhos, também para quem trabalha ao fim de semana. Imprimes e afixas.</p>
+    <span class="eyebrow"><svg class="i"><use href="#i-check"/></svg>Grátis até 3 trabalhadores · sem registo</span>
+    <h1>Mapa de férias <span id="hYear">2027</span>, pronto a afixar em minutos</h1>
+    <p class="lead">Escolhe o concelho, junta a equipa e marca as férias. Feriados municipais, fins de semana e folgas contam-se sozinhos, segundo o Código do Trabalho.</p>
+    <ul class="usp">
+      <li><svg class="i"><use href="#i-pin"/></svg>Feriados dos 308 concelhos</li>
+      <li><svg class="i"><use href="#i-users"/></svg>Folgas contadas por lei (art. 238.º)</li>
+      <li><svg class="i"><use href="#i-chat"/></svg>Pedidos de férias por WhatsApp</li>
+      <li><svg class="i"><use href="#i-shield"/></svg>Os dados nunca saem do teu computador</li>
+    </ul>
   </div>
-  <div class="toolbar no-print">
-    <button class="btn gold" id="bPrint">Imprimir / PDF</button>
-    <button class="btn light" id="bExport">Guardar cópia</button>
-    <label class="btn light" style="margin:0;text-transform:none;letter-spacing:0;font-size:14px">Abrir cópia<input type="file" id="fImport" accept=".json,application/json" hidden></label>
-  </div>
+  <aside class="deadline" aria-live="polite">
+    <small><svg class="i"><use href="#i-clock"/></svg>Prazo legal</small>
+    <b id="dlNum">–</b>
+    <span id="dlTxt"></span>
+    <em>Art. 241.º, n.º 9, do Código do Trabalho</em>
+  </aside>
 </header>
+
+<section id="pedirView" class="card">
+  <span class="eyebrow"><svg class="i"><use href="#i-chat"/></svg>Pedido de férias</span>
+  <h2 id="pvTitle" style="margin:14px 0 6px">Pedido de férias</h2>
+  <p id="pvSub" style="color:var(--muted)"></p>
+  <div class="field" style="margin-top:18px"><label for="pvNome">O teu nome</label><input id="pvNome" autocomplete="name" placeholder="Nome e apelido"></div>
+  <div id="pvPers"></div>
+  <button class="btn ghost sm" id="pvAdd" style="margin-top:12px"><svg class="i"><use href="#i-plus"/></svg>Outro período</button>
+  <div class="est" id="pvEst"></div>
+  <div class="dlg-actions" style="justify-content:flex-start">
+    <button class="btn" id="pvSend"><svg class="i"><use href="#i-chat"/></svg>Enviar pelo WhatsApp</button>
+    <button class="btn ghost" id="pvCopy"><svg class="i"><use href="#i-copy"/></svg>Copiar mensagem</button>
+  </div>
+  <p class="hint" style="margin-top:14px">O pedido segue pelo WhatsApp para quem escolheres. Nada fica guardado neste site.</p>
+  <p class="hint" style="margin-top:18px">Tens uma empresa? <a href="./">Faz o mapa de férias da tua equipa, grátis</a>.</p>
+</section>
 
 <main id="app">
   <div class="banner" id="demoBanner" hidden>
-    <span>Isto é um exemplo. Muda o nome da empresa e os trabalhadores, ou começa do zero.</span>
-    <button class="btn small" id="bClear">Começar do zero</button>
+    <span><svg class="i"><use href="#i-alert"/></svg>Estás a ver um exemplo. Muda os dados ou começa do zero.</span>
+    <button class="btn sm" id="bClear">Começar do zero</button>
   </div>
 
-  <section class="card">
-    <div class="toolbar" style="justify-content:space-between;margin-bottom:12px">
-      <h2 style="margin:0">Empresa</h2>
-      <div class="toolbar">
-        <select id="sEmp" style="width:auto"></select>
-        <button class="btn small light" id="bNewEmp">+ Outra empresa</button>
-        <button class="btn small light" id="bDelEmp">Apagar empresa</button>
+  <section class="card" id="s-emp">
+    <div class="step-head">
+      <span class="step-n">1</span><h2>Empresa</h2>
+      <div class="actions">
+        <select id="sEmp" style="width:auto" aria-label="Escolher empresa"></select>
+        <button class="btn ghost sm" id="bNewEmp"><svg class="i"><use href="#i-building"/></svg>Outra empresa</button>
+        <button class="btn ghost sm danger" id="bDelEmp"><svg class="i"><use href="#i-trash"/></svg>Apagar</button>
       </div>
+      <p>O concelho decide o feriado municipal. Tudo o resto vem do Código do Trabalho.</p>
     </div>
-    <div class="grid-form">
-      <div><label for="iNome">Nome da empresa</label><input id="iNome" placeholder="Ex.: Café Central, Lda."></div>
-      <div><label for="iNif">NIF (opcional)</label><input id="iNif" inputmode="numeric" maxlength="9"></div>
-      <div><label for="iConc">Concelho do local de trabalho</label><input id="iConc" list="lConc" placeholder="Escreve o concelho"><datalist id="lConc"></datalist></div>
-      <div><label for="sAno">Ano</label><select id="sAno"><option>2026</option><option selected>2027</option><option>2028</option></select></div>
-      <div><label for="iDias">Dias de férias por ano</label><input id="iDias" type="number" min="0" max="40" value="22"></div>
-      <div><label for="iMax">Alerta: máximo de ausentes por dia</label><input id="iMax" type="number" min="0" value="0" title="0 desliga o alerta"></div>
+    <div class="form">
+      <div class="field"><label for="iNome">Nome da empresa</label><input id="iNome" placeholder="Ex.: Café Central, Lda."></div>
+      <div class="field"><label for="iNif">NIF (opcional)</label><input id="iNif" inputmode="numeric" maxlength="9" placeholder="9 dígitos"></div>
+      <div class="field"><label for="iConc">Concelho do local de trabalho</label><input id="iConc" list="lConc" placeholder="Escreve e escolhe da lista" autocomplete="off"><datalist id="lConc"></datalist></div>
+      <div class="field"><label for="sAno">Ano</label><select id="sAno"><option>2026</option><option selected>2027</option><option>2028</option></select></div>
+      <div class="field"><label for="iDias">Dias de férias por ano</label><input id="iDias" type="number" min="0" max="40" value="22"><div class="hint">O mínimo legal são 22.</div></div>
+      <div class="field"><label for="iMax">Máximo de ausentes no mesmo dia</label><input id="iMax" type="number" min="0" value="0"><div class="hint">0 desliga o aviso.</div></div>
     </div>
-    <div class="toolbar" style="margin-top:12px;gap:18px">
-      <label class="check"><input type="checkbox" id="cMun" checked> Dar o feriado municipal</label>
-      <label class="check"><input type="checkbox" id="cCarn"> Dar o Carnaval</label>
-      <label class="check"><input type="checkbox" id="cVesp"> Dar 24 e 31 de dezembro</label>
+    <div class="toggles">
+      <label class="switch"><input type="checkbox" id="cMun" checked> Feriado municipal</label>
+      <label class="switch"><input type="checkbox" id="cCarn"> Tolerância no Carnaval</label>
+      <label class="switch"><input type="checkbox" id="cVesp"> Tolerância a 24 e 31 de dezembro</label>
     </div>
-    <div class="chips" id="holChips"></div>
+    <div class="chips" id="holNote"></div>
+    <details class="hols"><summary id="holSum"></summary><div class="chips" id="holChips"></div></details>
   </section>
 
-  <section class="card">
-    <div class="toolbar" style="justify-content:space-between;margin-bottom:6px">
-      <h2 style="margin:0">Trabalhadores e férias</h2>
-      <div class="toolbar">
-        <button class="btn small" id="bAddW">+ Trabalhador</button>
-        <button class="btn small light" id="bBulk">Colar lista de nomes</button>
+  <section class="card" id="s-team">
+    <div class="step-head">
+      <span class="step-n">2</span><h2>Equipa e férias</h2>
+      <div class="actions">
+        <button class="btn ghost sm" id="bPedidos"><svg class="i"><use href="#i-chat"/></svg>Pedidos por WhatsApp</button>
+        <button class="btn ghost sm" id="bBulk"><svg class="i"><use href="#i-users"/></svg>Colar lista de nomes</button>
+        <button class="btn sm" id="bAddW"><svg class="i"><use href="#i-plus"/></svg>Trabalhador</button>
       </div>
+      <p>Marca as folgas de cada pessoa (D S T Q Q S S): quem trabalha ao fim de semana tem as férias contadas de outra forma.</p>
     </div>
-    <table class="workers">
-      <thead><tr><th style="width:24%">Nome e folgas</th><th style="width:9%">Direito</th><th>Períodos de férias</th><th style="width:9%">Marcados</th><th style="width:20%">Estado</th><th></th></tr></thead>
+    <div class="kpis" id="kpis"></div>
+    <table class="team">
+      <thead><tr><th style="width:27%">Trabalhador e folgas</th><th style="width:9%">Direito</th><th>Férias marcadas</th><th style="width:19%">Estado</th><th style="width:1%"></th></tr></thead>
       <tbody id="wBody"></tbody>
     </table>
   </section>
 
-  <section class="card">
-    <h2>Calendário</h2>
-    <p style="color:var(--muted);font-size:14px">Clica num dia de trabalho para marcar ou desmarcar férias.</p>
-    <div class="legend"><span><i style="background:var(--vac)"></i>Férias</span><span><i style="background:var(--hol)"></i>Feriado</span><span><i style="background:var(--we)"></i>Folga ou fim de semana</span><span><i style="background:var(--bad)"></i>Ausentes acima do limite</span></div>
-    <div class="alerts" id="alerts"></div>
+  <section class="card" id="s-cal">
+    <div class="step-head">
+      <span class="step-n">3</span><h2>Calendário</h2>
+      <p>Clica num dia para marcar ou desmarcar. No computador, arrasta sobre vários dias para marcar um período de uma vez.</p>
+    </div>
+    <div class="legend"><span><i style="background:var(--vac)"></i>Férias</span><span><i style="background:var(--hol)"></i>Feriado</span><span><i style="background:var(--we)"></i>Folga ou fim de semana</span><span><i style="background:var(--bad)"></i>Ausentes acima do máximo</span></div>
+    <div class="alert" id="alerts" hidden></div>
     <div id="cal"></div>
   </section>
 
-  <section class="card" id="precos">
-    <h2>Preços</h2>
-    <div class="prices">
-      <div class="price"><span>Grátis</span><b>0 €</b><ul><li>1 empresa</li><li>Até 3 trabalhadores</li><li>Tudo o resto incluído</li></ul></div>
-      <div class="price"><span>Empresa</span><b>29 €<small style="font-size:14px">/ano</small></b><ul><li>Trabalhadores ilimitados</li><li>Sem rodapé no mapa impresso</li></ul><a class="btn buy" data-tier="empresa">Comprar</a></div>
-      <div class="price"><span>Contabilista</span><b>99 €<small style="font-size:14px">/ano</small></b><ul><li>Empresas ilimitadas</li><li>Trabalhadores ilimitados</li><li>Para gabinetes com muitos clientes</li></ul><a class="btn buy" data-tier="contabilista">Comprar</a></div>
+  <section class="card" id="s-print">
+    <div class="step-head"><span class="step-n">4</span><h2>Imprimir e afixar</h2></div>
+    <div class="ready" id="ready"></div>
+    <ul class="todo">
+      <li><svg class="i"><use href="#i-printer"/></svg>Imprime em A4 (ou guarda em PDF) com a lista de períodos e o calendário do ano.</li>
+      <li><svg class="i"><use href="#i-pin"/></svg>Assina e afixa num sítio visível até 15 de abril. Fica afixado até 31 de outubro.</li>
+      <li><svg class="i"><use href="#i-download"/></svg>Guarda uma cópia: serve de segurança e para passares os dados a outro computador.</li>
+    </ul>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn gold" id="bPrint2"><svg class="i"><use href="#i-printer"/></svg>Imprimir mapa de férias</button>
+      <button class="btn ghost" id="bExport2"><svg class="i"><use href="#i-download"/></svg>Guardar cópia</button>
     </div>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted)" id="licState"></p>
-    <button class="btn small light" id="bLic" style="margin-top:8px">Já tenho uma licença</button>
   </section>
 
-  <section class="card faq">
-    <h2>Perguntas frequentes</h2>
-    <h3>Até quando tenho de fazer o mapa de férias?</h3>
-    <p>Até 15 de abril de cada ano. O mapa fica afixado nos locais de trabalho entre essa data e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</p>
-    <h3>Quantos dias de férias tem cada trabalhador?</h3>
-    <p>Pelo menos 22 dias úteis por ano (art. 238.º). Dias úteis são de segunda a sexta, sem contar feriados. No ano de admissão as regras são outras: ajusta o "Direito" dessa pessoa.</p>
-    <h3>E quem trabalha ao fim de semana?</h3>
-    <p>Marca as folgas de cada pessoa nos botões D S T Q Q S S. Se alguém folga num dia útil, o sábado e o domingo contam como dias de férias em vez dessa folga (art. 238.º, n.º 3). Quem folga só um dia útil por semana conta o sábado em vez dele, para a semana de férias valer 5 dias. Com folgas rotativas, marca as mais habituais.</p>
-    <h3>As férias podem ser repartidas?</h3>
-    <p>Sim, por acordo, desde que haja pelo menos um período de 10 dias úteis seguidos (art. 241.º, n.º 8). A app avisa quando isso falta.</p>
-    <h3>E se não houver acordo?</h3>
-    <p>O empregador marca as férias, mas só entre 1 de maio e 31 de outubro (art. 241.º, n.º 3), salvo regras do contrato coletivo.</p>
-    <h3>O feriado municipal é obrigatório?</h3>
-    <p>Só quando está previsto no contrato, no contrato coletivo ou é costume na empresa. Por isso tens a opção de o dar ou não.</p>
-    <h3>Onde ficam os dados?</h3>
-    <p>Só no teu computador, neste browser. Nada é enviado para servidores. Usa "Guardar cópia" para teres um ficheiro de segurança ou para passar para outro computador.</p>
-    <p style="margin-top:14px;font-size:13px">Os feriados municipais vêm de fontes públicas e podem mudar. Confirma o do teu concelho junto da câmara municipal.</p>
+  <section class="card" id="precos">
+    <div class="step-head"><h2>Preços</h2><p style="padding-left:0">Paga uma vez por ano. Sem mensalidades nem dados na nuvem.</p></div>
+    <div class="prices">
+      <div class="price"><h3>Grátis</h3><b>0 €</b><ul><li><svg class="i"><use href="#i-check"/></svg>1 empresa</li><li><svg class="i"><use href="#i-check"/></svg>Até 3 trabalhadores</li><li><svg class="i"><use href="#i-check"/></svg>Todas as funções</li></ul></div>
+      <div class="price hl"><h3>Empresa</h3><b>29 € <small>/ano</small></b><ul><li><svg class="i"><use href="#i-check"/></svg>Trabalhadores ilimitados</li><li><svg class="i"><use href="#i-check"/></svg>Mapa impresso sem rodapé</li><li><svg class="i"><use href="#i-check"/></svg>Pedidos por WhatsApp para toda a equipa</li></ul><a class="btn buy" data-tier="empresa">Comprar</a></div>
+      <div class="price"><h3>Contabilista</h3><b>99 € <small>/ano</small></b><ul><li><svg class="i"><use href="#i-check"/></svg>Empresas ilimitadas</li><li><svg class="i"><use href="#i-check"/></svg>Trabalhadores ilimitados</li><li><svg class="i"><use href="#i-check"/></svg>Para gabinetes com muitos clientes</li></ul><a class="btn buy" data-tier="contabilista">Comprar</a></div>
+    </div>
+    <div class="lic"><span id="licState"></span><button class="btn ghost sm" id="bLic"><svg class="i"><use href="#i-key"/></svg>Já tenho licença</button></div>
+  </section>
+
+  <section class="card faq" id="perguntas">
+    <div class="step-head"><h2>Perguntas frequentes</h2></div>
+    <details><summary>Até quando tenho de fazer o mapa de férias?</summary><p>Até 15 de abril de cada ano. O mapa fica afixado nos locais de trabalho entre essa data e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</p></details>
+    <details><summary>Quantos dias de férias tem cada trabalhador?</summary><p>Pelo menos 22 dias úteis por ano (art. 238.º). Dias úteis são de segunda a sexta, sem feriados. No ano de admissão as regras são outras: ajusta o "Direito" dessa pessoa.</p></details>
+    <details><summary>E quem trabalha ao fim de semana?</summary><p>Marca as folgas de cada pessoa nos botões D S T Q Q S S. Se alguém folga num dia útil, o sábado e o domingo contam como dias de férias em vez dessa folga (art. 238.º, n.º 3). Quem folga só um dia útil por semana conta o sábado em vez dele, para a semana de férias valer 5 dias. Com folgas rotativas, marca as mais habituais.</p></details>
+    <details><summary>As férias podem ser repartidas?</summary><p>Sim, por acordo, desde que haja pelo menos um período de 10 dias úteis seguidos (art. 241.º, n.º 8). A app avisa quando isso falta.</p></details>
+    <details><summary>E se não houver acordo?</summary><p>O empregador marca as férias, mas só entre 1 de maio e 31 de outubro (art. 241.º, n.º 3), salvo regras do contrato coletivo.</p></details>
+    <details><summary>Como funcionam os pedidos por WhatsApp?</summary><p>Em "Pedidos por WhatsApp" copias um link e mandas à equipa. Cada pessoa escolhe as datas no telemóvel e devolve-te o pedido por WhatsApp. Tocas no link do pedido, confirmas, e as férias ficam marcadas aqui. Não há contas nem servidores pelo meio.</p></details>
+    <details><summary>O feriado municipal é obrigatório?</summary><p>Só quando está no contrato, no contrato coletivo ou é costume na empresa. Por isso podes ligá-lo ou desligá-lo. As datas vêm de fontes públicas e podem mudar: confirma a do teu concelho junto da câmara.</p></details>
+    <details><summary>Onde ficam os dados?</summary><p>Só no teu computador, neste browser. Nada é enviado para servidores. Usa "Guardar cópia" para teres um ficheiro de segurança ou para passares para outro computador.</p></details>
   </section>
 </main>
 
 <div id="print"></div>
-<footer class="no-print">Mapa de Férias · feito em Portugal · <a href="https://pedrovaz02.github.io/pontes-2027/">Planeador de Pontes 2027</a></footer>
+<footer>
+  <span>Mapa de Férias · feito em Portugal · não substitui aconselhamento jurídico</span>
+  <nav><a href="#precos">Preços</a><a href="#perguntas">Perguntas</a><a href="https://pedrovaz02.github.io/pontes-2027/">Planeador de Pontes 2027</a></nav>
+</footer>
 </div>
+
+<div id="toast" role="status" aria-live="polite"></div>
 
 <dialog id="dBulk">
   <h2>Colar lista de nomes</h2>
-  <p>Um nome por linha. Podes copiar de uma folha de Excel.</p>
-  <textarea id="tBulk"></textarea>
-  <div class="toolbar" style="margin-top:12px;justify-content:flex-end"><button class="btn light" data-close>Cancelar</button><button class="btn" id="bBulkOk">Adicionar</button></div>
+  <p>Um nome por linha. Podes copiar uma coluna de uma folha de Excel.</p>
+  <textarea id="tBulk" placeholder="Ana Martins&#10;Bruno Costa&#10;Carla Sousa"></textarea>
+  <div class="dlg-actions"><button class="btn ghost" data-close>Cancelar</button><button class="btn" id="bBulkOk">Adicionar</button></div>
 </dialog>
 <dialog id="dPay">
-  <h2 id="payTitle">Chegaste ao limite da versão grátis</h2>
-  <p id="payText">A versão grátis dá para 1 empresa com até 3 trabalhadores.</p>
-  <div class="toolbar" style="justify-content:flex-end"><button class="btn light" data-close>Agora não</button><a class="btn light" href="#precos" data-close>Ver preços</a><button class="btn" id="bPayLic">Tenho licença</button></div>
+  <h2>Chegaste ao limite da versão grátis</h2>
+  <p id="payText"></p>
+  <div class="dlg-actions"><button class="btn ghost" data-close>Agora não</button><a class="btn ghost" href="#precos" data-close>Ver preços</a><button class="btn" id="bPayLic">Tenho licença</button></div>
 </dialog>
 <dialog id="dLic">
   <h2>Ativar licença</h2>
   <p>Cola a chave que recebeste por email depois da compra.</p>
   <input id="iLic" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX" autocomplete="off">
   <div class="msg" id="licMsg"></div>
-  <div class="toolbar" style="margin-top:12px;justify-content:flex-end"><button class="btn light" data-close>Fechar</button><button class="btn" id="bLicOk">Ativar</button></div>
+  <div class="dlg-actions"><button class="btn ghost" data-close>Fechar</button><button class="btn" id="bLicOk">Ativar</button></div>
+</dialog>
+<dialog id="dLink">
+  <h2>Pedidos de férias por WhatsApp</h2>
+  <p>Manda este link à equipa (por exemplo, no grupo de WhatsApp). Cada pessoa escolhe as datas no telemóvel e devolve-te o pedido. Tocas no link do pedido e as férias ficam marcadas aqui.</p>
+  <input id="iLink" readonly aria-label="Link para a equipa">
+  <div class="dlg-actions"><button class="btn ghost" data-close>Fechar</button><button class="btn ghost" id="bCopyLink"><svg class="i"><use href="#i-copy"/></svg>Copiar link</button><a class="btn" id="aWaLink" target="_blank" rel="noopener"><svg class="i"><use href="#i-chat"/></svg>Enviar por WhatsApp</a></div>
+</dialog>
+<dialog id="dAceitar">
+  <h2>Pedido de férias</h2>
+  <p id="acTxt"></p>
+  <div class="field"><label for="acW">Marcar nas férias de</label><select id="acW"></select></div>
+  <div class="hint" id="acEmp"></div>
+  <div class="dlg-actions"><button class="btn ghost" id="acNo">Ignorar</button><button class="btn" id="acYes"><svg class="i"><use href="#i-check"/></svg>Aceitar e marcar</button></div>
 </dialog>
 
 <script src="concelhos.js"></script>
@@ -236,17 +498,34 @@ const FOLGAS_PADRAO = [6, 0];  // sábado e domingo
 const folgasOf = w => Array.isArray(w.folgas) ? w.folgas : FOLGAS_PADRAO;
 const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
 const DSEM = ["D","S","T","Q","Q","S","S"];
-const $ = s => document.querySelector(s);
+const DIAS = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+const SEMANA = [1, 2, 3, 4, 5, 6, 0];
+const CORES = ["#1F4E5F","#2B6A80","#8A5A00","#6B4E9E","#2E7D4F","#B4532A","#4F6D7A","#9E3B5B"];
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const uid = () => Math.random().toString(36).slice(2, 10);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ic = n => `<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const plural = (n, s, p = s + "s") => `${n} ${n === 1 ? s : p}`;
+const cap = s => s[0].toUpperCase() + s.slice(1);
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, " ").trim();
+const base = () => location.origin + location.pathname;
+const enc = o => btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const dec = s => JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/")))));
 
 // ---- datas (sempre em UTC para não haver saltos de fuso horário) ----
 const D = s => new Date(s + "T00:00:00Z");
 const iso = d => d.toISOString().slice(0, 10);
+const todayISO = () => { const n = new Date(); return iso(new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()))); };
 const addDays = (s, n) => { const d = D(s); d.setUTCDate(d.getUTCDate() + n); return iso(d); };
 const dow = s => D(s).getUTCDay();
 const fmt = s => { const d = D(s); return d.getUTCDate() + " " + MESES[d.getUTCMonth()].slice(0, 3); };
 const fmtLong = s => { const d = D(s); return String(d.getUTCDate()).padStart(2, "0") + "/" + String(d.getUTCMonth() + 1).padStart(2, "0") + "/" + d.getUTCFullYear(); };
+const fmtRange = (a, b) => a === b ? fmtLong(a) : fmtLong(a) + " a " + fmtLong(b);
+function fmtHuman(a, b) {
+  const A = D(a), B = D(b), ma = MESES[A.getUTCMonth()], mb = MESES[B.getUTCMonth()];
+  if (a === b) return `${A.getUTCDate()} de ${ma}`;
+  return ma === mb ? `${A.getUTCDate()} a ${B.getUTCDate()} de ${ma}` : `${A.getUTCDate()} de ${ma} a ${B.getUTCDate()} de ${mb}`;
+}
 function easter(y) {
   const a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
   const g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4;
@@ -318,7 +597,10 @@ function expandRange(a, b, isWork) {
 }
 function normalize(e) {  // os dados de exemplo vêm em intervalos; passam a lista de dias que contam
   const { forW } = ctx(e);
-  e.trab.forEach(w => { if (w._ranges) { w.dias = w.dias.flatMap(([a, b]) => expandRange(a, b, forW(w))); delete w._ranges; } });
+  e.trab.forEach(w => {
+    if (!Array.isArray(w.dias)) w.dias = [];
+    if (w._ranges) { w.dias = w.dias.flatMap(([a, b]) => expandRange(a, b, forW(w))); delete w._ranges; }
+  });
 }
 S.emps.forEach(normalize);
 function daysOf(w, e, isWork) {
@@ -341,24 +623,43 @@ function periods(days, isWork) {
 }
 function check(w, e, isWork) {
   const days = daysOf(w, e, isWork), per = periods(days, isWork), used = days.length, dir = Number(w.direito) || 0;
-  if (used > dir) return { used, per, cls: "bad", txt: `Excede ${used - dir} dia${used - dir > 1 ? "s" : ""}` };
-  if (dir >= 10 && used >= 10 && !per.some(p => p.n >= 10)) return { used, per, cls: "bad", txt: "Falta um período de 10 dias úteis seguidos" };
-  if (used < dir) return { used, per, cls: "warn", txt: `Faltam ${dir - used} dia${dir - used > 1 ? "s" : ""} por marcar` };
-  return { used, per, cls: "ok", txt: "Completo" };
+  if (used > dir) return { used, dir, per, cls: "bad", txt: `Excede ${plural(used - dir, "dia")}` };
+  if (dir >= 10 && used >= 10 && !per.some(p => p.n >= 10)) return { used, dir, per, cls: "bad", txt: "Falta um período de 10 dias seguidos" };
+  if (used < dir) return { used, dir, per, cls: "warn", txt: `Faltam ${plural(dir - used, "dia")}` };
+  return { used, dir, per, cls: "ok", txt: "Completo" };
 }
+function absences(e) {
+  const { forW } = ctx(e), cnt = new Map();
+  e.trab.forEach(w => daysOf(w, e, forW(w)).forEach(d => cnt.set(d, (cnt.get(d) || 0) + 1)));
+  return cnt;
+}
+const folgasTxt = w => SEMANA.filter(d => folgasOf(w).includes(d)).map(d => DIAS[d].slice(0, 3) + ".").join(", ") || "sem folgas";
+const initials = n => (String(n || "?").trim().split(/\s+/).filter(Boolean).map(p => p[0]).filter((_, i, a) => i === 0 || i === a.length - 1).join("") || "?").toUpperCase();
+const colorOf = n => CORES[[...String(n || "")].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7) % CORES.length];
 
-// ---- interface ----
+// ---- avisos rápidos ----
+let toastT;
+function toast(msg, { err = false, action, onAction } = {}) {
+  const t = $("#toast");
+  t.className = err ? "err" : "";
+  t.innerHTML = `<span>${esc(msg)}</span>` + (action ? `<button type="button">${esc(action)}</button>` : "");
+  if (action) t.querySelector("button").onclick = () => { t.classList.remove("show"); onAction(); };
+  requestAnimationFrame(() => t.classList.add("show"));
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), action ? 7000 : 3500);
+}
 const dlg = id => $(id).showModal();
-document.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => b.closest("dialog").close()));
+$$("dialog").forEach(d => d.addEventListener("click", ev => { if (ev.target === d) d.close(); }));
+$$("[data-close]").forEach(b => b.addEventListener("click", () => b.closest("dialog").close()));
 function paywall(kind) {
-  $("#payTitle").textContent = "Chegaste ao limite da versão grátis";
   $("#payText").textContent = kind === "emp"
     ? "Várias empresas no mesmo sítio é do plano Contabilista (99 €/ano, empresas e trabalhadores ilimitados)."
     : `A versão grátis dá para até ${CFG.FREE_WORKERS} trabalhadores. O plano Empresa (29 €/ano) não tem limite.`;
   dlg("#dPay");
 }
 
+// ---- desenhar ----
 $("#lConc").innerHTML = CONCELHOS.map(c => `<option value="${esc(c[0])}">${esc(c[1])}</option>`).join("");
+const openAdd = new Set();
 
 function renderSettings() {
   const e = emp();
@@ -369,85 +670,118 @@ function renderSettings() {
   $("#sAno").value = e.ano; $("#iDias").value = e.dias; $("#iMax").value = e.maxAus;
   $("#cMun").checked = e.municipal; $("#cCarn").checked = e.carnaval; $("#cVesp").checked = e.vespera;
   $("#demoBanner").hidden = !S.demo;
+}
+function renderDeadline() {
+  const e = emp(), days = Math.round((D(`${e.ano}-04-15`) - D(todayISO())) / 864e5);
   $("#hYear").textContent = e.ano;
+  if (days > 0) { $("#dlNum").textContent = days; $("#dlTxt").textContent = `${days === 1 ? "dia" : "dias"} até 15 de abril de ${e.ano}, o prazo para afixar o mapa de férias.`; }
+  else if (days === 0) { $("#dlNum").textContent = "Hoje"; $("#dlTxt").textContent = "é o último dia para afixar o mapa de férias."; }
+  else { $("#dlNum").textContent = "15 abr"; $("#dlTxt").textContent = `O prazo de ${e.ano} já passou: o mapa fica afixado até 31 de outubro.`; }
 }
 function renderHolidays() {
-  const e = emp(), { hol } = ctx(e), c = concelho(e.concelho);
-  let html = [...hol.entries()].sort().map(([d, n]) => `<span class="chip hol" title="${esc(n)}">${fmt(d)} · ${esc(n.replace(/ \(.*\)/, ""))}</span>`).join("");
-  if (e.concelho && !c) html = `<span class="chip">Concelho não encontrado: escolhe da lista</span>` + html;
-  else if (c && !(c[4][e.ano] || []).length) html = `<span class="chip">Feriado municipal de ${esc(c[0])} por confirmar: pergunta à câmara</span>` + html;
-  $("#holChips").innerHTML = html;
+  const e = emp(), { hol } = ctx(e), c = concelho(e.concelho), mun = c ? (c[4][e.ano] || []) : [];
+  let sum = `${ic("calendar")}<span>${plural(hol.size, "feriado")} em ${e.ano}`;
+  if (c && e.municipal && mun.length) sum += ` · municipal de ${esc(c[0])}: ${mun.map(fmt).join(", ")}`;
+  $("#holSum").innerHTML = sum + "</span>";
+  let note = "";
+  if (!e.concelho) note = `<span class="chip note">${ic("pin")}Escolhe o concelho para juntar o feriado municipal</span>`;
+  else if (!c) note = `<span class="chip note">${ic("alert")}Concelho não encontrado: escolhe da lista</span>`;
+  else if (!mun.length) note = `<span class="chip note">${ic("alert")}Feriado municipal de ${esc(c[0])} por confirmar: pergunta à câmara</span>`;
+  $("#holNote").innerHTML = note;
+  $("#holChips").innerHTML = [...hol.entries()].sort().map(([d, n]) => `<span class="chip hol${n.includes("Feriado municipal") ? " mun" : ""}" title="${esc(n)}">${fmt(d)} · ${esc(n.replace(/ \(.*\)/, ""))}</span>`).join("");
 }
-const DIAS = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
-const SEMANA = [1, 2, 3, 4, 5, 6, 0];
-const folgasTxt = w => SEMANA.filter(d => folgasOf(w).includes(d)).map(d => DIAS[d].slice(0, 3) + ".").join(", ") || "sem folgas";
+function renderStats() {
+  const e = emp(), { forW } = ctx(e), rs = e.trab.map(w => check(w, e, forW(w)));
+  const used = rs.reduce((a, r) => a + r.used, 0), dir = rs.reduce((a, r) => a + r.dir, 0);
+  const falta = rs.reduce((a, r) => a + Math.max(0, r.dir - r.used), 0);
+  const over = e.maxAus > 0 ? [...absences(e).values()].filter(c => c > e.maxAus).length : 0;
+  const avisos = rs.filter(r => r.cls === "bad").length + (over ? 1 : 0);
+  $("#kpis").innerHTML = [[e.trab.length, e.trab.length === 1 ? "trabalhador" : "trabalhadores"], [`${used}<small> / ${dir}</small>`, "dias de férias marcados"],
+    [falta, "dias por marcar"], [avisos, avisos === 1 ? "aviso" : "avisos", avisos ? "bad" : ""]]
+    .map(([v, l, c = ""]) => `<div class="kpi ${c}"><b>${v}</b><span>${l}</span></div>`).join("");
+  const ready = $("#ready");
+  ready.className = "ready" + (avisos || !e.trab.length ? " warn" : "");
+  ready.innerHTML = !e.trab.length ? `${ic("alert")}Junta a equipa no passo 2 para o mapa ter conteúdo.`
+    : avisos ? `${ic("alert")}Há ${plural(avisos, "aviso")} na equipa. Podes imprimir na mesma, mas convém resolver primeiro.`
+    : `${ic("check")}Tudo certo. O mapa está pronto a imprimir.`;
+}
 function renderWorkers() {
   const e = emp(), { forW } = ctx(e);
+  if (!e.trab.length) {
+    $("#wBody").innerHTML = `<tr><td colspan="5" class="empty">${ic("users")}<div>Ainda não há ninguém na equipa.</div><div style="margin-top:12px"><button class="btn sm" data-first>${ic("plus")}Juntar o primeiro trabalhador</button></div></td></tr>`;
+    return;
+  }
   $("#wBody").innerHTML = e.trab.map(w => {
-    const r = check(w, e, forW(w)), fol = folgasOf(w);
-    const folgas = SEMANA.map(d => `<button class="fd${fol.includes(d) ? " on" : ""}" data-folga="${w.id}|${d}" title="${fol.includes(d) ? "Folga à " : "Trabalha à "}${DIAS[d]}" aria-pressed="${fol.includes(d)}">${DSEM[d]}</button>`).join("");
-    const chips = r.per.map(p => `<span class="chip vac">${fmt(p.ini)}${p.ini !== p.fim ? " – " + fmt(p.fim) : ""} · ${p.n} d<button title="Apagar período" data-delp="${w.id}|${p.ini}|${p.fim}">×</button></span>`).join("") || `<span style="color:var(--muted);font-size:13px">Sem férias marcadas</span>`;
+    const r = check(w, e, forW(w)), fol = folgasOf(w), pct = r.dir ? Math.min(100, Math.round(r.used / r.dir * 100)) : 100;
+    const folgas = SEMANA.map(d => `<button type="button" class="fd${fol.includes(d) ? " on" : ""}" data-folga="${w.id}|${d}" title="${fol.includes(d) ? "Folga à " : "Trabalha à "}${DIAS[d]}" aria-pressed="${fol.includes(d)}">${DSEM[d]}</button>`).join("");
+    const chips = r.per.map(p => `<span class="chip vac">${fmt(p.ini)}${p.ini !== p.fim ? " – " + fmt(p.fim) : ""} · ${p.n} d<button type="button" title="Apagar período" aria-label="Apagar período" data-delp="${w.id}|${p.ini}|${p.fim}">${ic("x")}</button></span>`).join("") || `<span class="none">Sem férias marcadas</span>`;
     return `<tr data-w="${w.id}">
-      <td class="wide"><input value="${esc(w.nome)}" data-f="nome" placeholder="Nome"><div class="folgas">Folgas ${folgas}</div></td>
-      <td><input type="number" min="0" max="40" value="${esc(w.direito)}" data-f="direito" aria-label="Dias de direito"></td>
-      <td class="wide"><div class="chips" style="margin:0">${chips}</div>
-        <div class="addp"><input type="date" data-a min="${e.ano}-01-01" max="${e.ano}-12-31" aria-label="Início"><input type="date" data-b min="${e.ano}-01-01" max="${e.ano}-12-31" aria-label="Fim"><button class="btn small light" data-addp="${w.id}">Marcar período</button></div></td>
-      <td><span class="num">${r.used}</span> <span style="color:var(--muted)">/ ${esc(w.direito)}</span></td>
-      <td><span class="status ${r.cls}">${r.txt}</span></td>
-      <td><button class="btn small light" data-delw="${w.id}" title="Apagar trabalhador">Apagar</button></td></tr>`;
-  }).join("") || `<tr><td colspan="6" style="color:var(--muted)">Ainda não há trabalhadores. Clica em "+ Trabalhador".</td></tr>`;
+      <td class="c-who"><div class="who"><span class="avatar" style="background:${colorOf(w.nome)}">${esc(initials(w.nome))}</span><div>
+        <input class="name-in" value="${esc(w.nome)}" data-f="nome" placeholder="Nome do trabalhador" aria-label="Nome">
+        <div class="folgas"><em>Folgas</em>${folgas}</div></div></div></td>
+      <td class="c-dir"><span class="m-lbl">Dias de direito</span><input class="dir-in" type="number" min="0" max="40" value="${esc(w.direito)}" data-f="direito" aria-label="Dias de direito"></td>
+      <td class="c-fer"><div class="used"><b>${r.used}</b> de ${r.dir} dias</div><div class="bar ${r.cls}"><i style="width:${pct}%"></i></div>
+        <div class="chips" style="margin:0">${chips}<button type="button" class="btn ghost sm" data-openp="${w.id}">${ic("plus")}Período</button></div>
+        <div class="addp${openAdd.has(w.id) ? " open" : ""}"><input type="date" data-a min="${e.ano}-01-01" max="${e.ano}-12-31" aria-label="Primeiro dia"><span>até</span><input type="date" data-b min="${e.ano}-01-01" max="${e.ano}-12-31" aria-label="Último dia"><button type="button" class="btn sm" data-addp="${w.id}">Marcar</button></div></td>
+      <td class="c-st"><span class="pill ${r.cls}">${ic(r.cls === "ok" ? "check" : "alert")}${r.txt}</span></td>
+      <td class="c-del"><button type="button" class="btn ghost icon danger" data-delw="${w.id}" title="Apagar trabalhador" aria-label="Apagar ${esc(w.nome || "trabalhador")}">${ic("trash")}</button></td></tr>`;
+  }).join("");
 }
 function calendarHTML(e, interactive) {
-  const { hol, forW } = ctx(e), y = e.ano;
+  const { hol, forW } = ctx(e), y = e.ano, t = todayISO();
   const fns = e.trab.map(forW), sets = e.trab.map((w, i) => new Set(daysOf(w, e, fns[i])));
   let out = "";
   for (let m = 0; m < 12; m++) {
     const n = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
     const ds = Array.from({ length: n }, (_, i) => `${y}-${String(m + 1).padStart(2, "0")}-${String(i + 1).padStart(2, "0")}`);
     const cls = d => hol.has(d) ? "hol" : (dow(d) === 0 || dow(d) === 6) ? "we" : "";
-    const count = d => sets.reduce((a, s) => a + s.has(d), 0);
-    const pad = interactive ? "" : "<th></th>".repeat(31 - n);  // no papel os 12 meses ficam alinhados
-    out += `<div class="mblk"><div class="month-title">${MESES[m][0].toUpperCase() + MESES[m].slice(1)} ${y}</div><div class="cal-scroll"><table class="cal"><thead><tr><th class="name"></th>` +
-      ds.map(d => { const over = e.maxAus > 0 && count(d) > e.maxAus; return `<th class="${cls(d)}${over ? " over" : ""}" title="${esc(hol.get(d) || "")}${over ? " · " + count(d) + " ausentes" : ""}">${DSEM[dow(d)]}<br>${Number(d.slice(8))}</th>`; }).join("") +
-      pad + `</tr></thead><tbody>` +
-      e.trab.map((w, i) => `<tr><td class="name" title="${esc(w.nome)}">${esc(w.nome || "Sem nome")}</td>` + ds.map(d => {
-        const counts = fns[i](d), c = sets[i].has(d) ? "vac" : hol.has(d) ? "hol" : counts ? "" : "we";
-        const work = interactive && counts ? " work" : "";
-        return `<td class="${c}${work}"${work ? ` data-day="${w.id}|${d}"` : ""}></td>`;
-      }).join("") + pad.replace(/th>/g, "td>") + `</tr>`).join("") + `</tbody></table></div></div>`;
+    const counts = ds.map(d => sets.reduce((a, s) => a + s.has(d), 0)), total = counts.reduce((a, b) => a + b, 0);
+    const pad = '<th class="pad"></th>'.repeat(31 - n), padTd = pad.replace(/th/g, "td");  // os 12 meses ficam alinhados
+    out += `<div class="mblk"><div class="month-title">${cap(MESES[m])} ${y}${total ? `<small>${plural(total, "dia")} de férias</small>` : ""}</div><div class="cal-scroll"><table class="cal"><thead><tr><th class="name"></th>` +
+      ds.map((d, i) => `<th class="${cls(d)}${d === t ? " today" : ""}"${hol.has(d) ? ` title="${esc(hol.get(d))}"` : ""}>${DSEM[dow(d)]}<br>${i + 1}</th>`).join("") + pad + `</tr></thead><tbody>` +
+      e.trab.map((w, i) => `<tr data-w="${w.id}"><td class="name" title="${esc(w.nome)}">${esc(w.nome || "Sem nome")}</td>` + ds.map(d => {
+        const counted = fns[i](d), c = sets[i].has(d) ? "vac" : hol.has(d) ? "hol" : counted ? "" : "we";
+        return `<td class="${c}${interactive && counted ? " work" : ""}"${interactive ? ` data-d="${d}"` : ""}></td>`;
+      }).join("") + padTd + `</tr>`).join("") +
+      (e.trab.length > 1 ? `<tr class="aus"><td class="name">Ausentes</td>` + counts.map(c => `<td class="${e.maxAus > 0 && c > e.maxAus ? "over" : ""}">${c || ""}</td>`).join("") + padTd + `</tr>` : "") +
+      `</tbody></table></div></div>`;
   }
   return out;
 }
 function renderCalendar() {
-  const e = emp(), { forW } = ctx(e);
-  $("#cal").innerHTML = e.trab.length ? calendarHTML(e, true) : "";
-  const alerts = [];
-  if (e.maxAus > 0) {
-    const cnt = new Map();
-    e.trab.forEach(w => daysOf(w, e, forW(w)).forEach(d => cnt.set(d, (cnt.get(d) || 0) + 1)));
-    const over = [...cnt].filter(([, c]) => c > e.maxAus).map(([d]) => d).sort();
-    if (over.length) alerts.push(`${over.length} dia${over.length > 1 ? "s" : ""} com mais de ${e.maxAus} pessoa${e.maxAus > 1 ? "s" : ""} de férias (primeiro: ${fmt(over[0])}).`);
-  }
-  $("#alerts").textContent = alerts.join(" ");
+  const e = emp(), sl = $$("#cal .cal-scroll").map(x => x.scrollLeft);
+  $("#cal").innerHTML = e.trab.length ? calendarHTML(e, true) : `<div class="empty">${ic("calendar")}<div>O calendário aparece quando juntares a equipa.</div></div>`;
+  $$("#cal .cal-scroll").forEach((x, i) => { x.scrollLeft = sl[i] || 0; });
+  const over = e.maxAus > 0 ? [...absences(e)].filter(([, c]) => c > e.maxAus).map(([d]) => d).sort() : [];
+  $("#alerts").hidden = !over.length;
+  $("#alerts").innerHTML = over.length ? `${ic("alert")}<span>${plural(over.length, "dia")} com mais de ${plural(e.maxAus, "pessoa")} de férias ao mesmo tempo (o primeiro é ${fmt(over[0])}).</span>` : "";
 }
 function renderLic() {
   const t = tier();
-  $("#licState").textContent = t === "gratis" ? `Estás na versão grátis (1 empresa, até ${CFG.FREE_WORKERS} trabalhadores).`
+  $("#licState").textContent = t === "gratis" ? `Estás na versão grátis: 1 empresa, até ${CFG.FREE_WORKERS} trabalhadores.`
     : `Licença ${t === "contabilista" ? "Contabilista" : "Empresa"} ativa${S.lic.email ? " (" + S.lic.email + ")" : ""}.`;
-  document.querySelectorAll(".buy").forEach(a => {
+  $$(".buy").forEach(a => {
     if (CFG.BUY_URL) { a.href = CFG.BUY_URL + "?variant=" + encodeURIComponent(a.dataset.tier === "contabilista" ? "Contabilista" : "Empresa"); a.target = "_blank"; a.rel = "noopener"; }
-    else { a.removeAttribute("href"); a.textContent = "Brevemente"; a.classList.add("light"); }
+    else { a.removeAttribute("href"); a.textContent = "Brevemente"; a.classList.add("ghost"); }
   });
 }
-function render() { renderSettings(); renderHolidays(); renderWorkers(); renderCalendar(); renderLic(); save(); buildPrint(); }
-function changed() { S.demo = false; renderHolidays(); renderWorkers(); renderCalendar(); save(); buildPrint(); }
+function keepFocus(fn) {  // redesenhar a tabela sem perder o campo onde a pessoa estava
+  const a = document.activeElement, w = a?.closest?.("tr[data-w]")?.dataset.w, f = a?.dataset?.f;
+  fn();
+  if (w && f) $(`#wBody tr[data-w="${w}"] [data-f="${f}"]`)?.focus();
+}
+function render() { renderSettings(); renderDeadline(); renderHolidays(); keepFocus(renderWorkers); renderStats(); renderCalendar(); renderLic(); save(); buildPrint(); }
+function changed() { S.demo = false; $("#demoBanner").hidden = true; renderHolidays(); keepFocus(renderWorkers); renderStats(); renderCalendar(); save(); buildPrint(); }
 
-// ---- eventos ----
+// ---- empresa ----
 const bind = (sel, ev, fn) => $(sel).addEventListener(ev, fn);
-bind("#iNome", "input", e => { emp().nome = e.target.value; S.demo = false; save(); $("#sEmp").selectedOptions[0] && ($("#sEmp").selectedOptions[0].textContent = e.target.value || "Sem nome"); });
+bind("#iNome", "input", e => { emp().nome = e.target.value; S.demo = false; save(); const o = $("#sEmp").selectedOptions[0]; if (o) o.textContent = e.target.value || "Sem nome"; });
 bind("#iNif", "input", e => { emp().nif = e.target.value.replace(/\D/g, ""); save(); });
-bind("#iConc", "change", e => { emp().concelho = e.target.value.trim(); changed(); });
-bind("#sAno", "change", e => { emp().ano = Number(e.target.value); $("#hYear").textContent = emp().ano; changed(); });
+bind("#iConc", "change", e => {
+  const v = e.target.value.trim(), c = CONCELHOS.find(x => norm(x[0]) === norm(v));
+  emp().concelho = c ? c[0] : v; if (c) e.target.value = c[0]; changed();
+});
+bind("#sAno", "change", e => { emp().ano = Number(e.target.value); renderDeadline(); changed(); });
 bind("#iDias", "change", e => {
   const x = emp(), old = x.dias; x.dias = Math.max(0, Number(e.target.value) || 0);
   x.trab.forEach(w => { if (Number(w.direito) === old) w.direito = x.dias; }); changed();
@@ -456,7 +790,7 @@ bind("#iMax", "change", e => { emp().maxAus = Math.max(0, Number(e.target.value)
 bind("#cMun", "change", e => { emp().municipal = e.target.checked; changed(); });
 bind("#cCarn", "change", e => { emp().carnaval = e.target.checked; changed(); });
 bind("#cVesp", "change", e => { emp().vespera = e.target.checked; changed(); });
-bind("#sEmp", "change", e => { S.cur = e.target.value; render(); });
+bind("#sEmp", "change", e => { S.cur = e.target.value; openAdd.clear(); render(); });
 bind("#bNewEmp", "click", () => {
   if (S.emps.length >= maxEmps()) return paywall("emp");
   const e = newEmp("Nova empresa"); S.emps.push(e); S.cur = e.id; S.demo = false; render(); $("#iNome").select();
@@ -466,94 +800,143 @@ bind("#bDelEmp", "click", () => {
   if (!confirm(`Apagar "${e.nome || "Sem nome"}" e todas as férias marcadas?`)) return;
   S.emps = S.emps.filter(x => x.id !== e.id); S.cur = S.emps[0].id; render();
 });
-bind("#bClear", "click", () => { const e = newEmp(""); S = { emps: [e], cur: e.id, demo: false, lic: S.lic }; render(); $("#iNome").focus(); });
+bind("#bClear", "click", () => { const e = newEmp(""); S = { emps: [e], cur: e.id, demo: false, lic: S.lic }; openAdd.clear(); render(); $("#iNome").focus(); });
+
+// ---- equipa ----
 function addWorker(nome) {
   const e = emp();
   if (e.trab.length >= maxWorkers()) { paywall("w"); return false; }
   e.trab.push({ id: uid(), nome, direito: e.dias, folgas: [...FOLGAS_PADRAO], dias: [] }); return true;
 }
-bind("#bAddW", "click", () => { if (addWorker("")) { changed(); const ins = document.querySelectorAll('#wBody input[data-f="nome"]'); ins[ins.length - 1].focus(); } });
+function addAndFocus() { if (addWorker("")) { changed(); const ins = $$('#wBody input[data-f="nome"]'); ins[ins.length - 1].focus(); } }
+bind("#bAddW", "click", addAndFocus);
 bind("#bBulk", "click", () => { $("#tBulk").value = ""; dlg("#dBulk"); });
 bind("#bBulkOk", "click", () => {
   const names = $("#tBulk").value.split(/\r?\n/).map(s => s.split("\t")[0].trim()).filter(Boolean);
-  for (const n of names) if (!addWorker(n)) break;
-  $("#dBulk").close(); changed();
+  let n = 0; $("#dBulk").close();
+  for (const nome of names) { if (!addWorker(nome)) break; n++; }
+  if (n) { changed(); toast(plural(n, "trabalhador adicionado", "trabalhadores adicionados")); }
 });
 $("#wBody").addEventListener("input", ev => {
   const f = ev.target.dataset.f; if (!f) return;
   const w = emp().trab.find(x => x.id === ev.target.closest("tr").dataset.w);
   w[f] = f === "direito" ? Math.max(0, Number(ev.target.value) || 0) : ev.target.value; S.demo = false; save();
-  if (f === "direito") { clearTimeout(window._t); window._t = setTimeout(() => { renderWorkers(); }, 600); }
+  if (f === "nome") { const av = ev.target.closest("tr").querySelector(".avatar"); av.textContent = initials(w.nome); av.style.background = colorOf(w.nome); }
 });
-$("#wBody").addEventListener("change", ev => { if (ev.target.dataset.f === "nome") renderCalendar(); });
+$("#wBody").addEventListener("change", ev => { if (ev.target.dataset.f) changed(); });
+$("#wBody").addEventListener("keydown", ev => { if (ev.key === "Enter" && ev.target.dataset.f === "nome") ev.target.blur(); });
 $("#wBody").addEventListener("click", ev => {
-  const e = emp(), { forW } = ctx(e), t = ev.target;
-  if (t.dataset.delw) {
-    const w = e.trab.find(x => x.id === t.dataset.delw);
-    if (confirm(`Apagar ${w.nome || "este trabalhador"}?`)) { e.trab = e.trab.filter(x => x !== w); changed(); }
-  } else if (t.dataset.addp) {
+  const e = emp(), { forW } = ctx(e), t = ev.target.closest("button"); if (!t) return;
+  const ds = t.dataset;
+  if (ds.first !== undefined) return addAndFocus();
+  if (ds.delw) {
+    const i = e.trab.findIndex(x => x.id === ds.delw), w = e.trab[i];
+    e.trab.splice(i, 1); changed();
+    toast(`${w.nome || "Trabalhador"} apagado`, { action: "Anular", onAction: () => { e.trab.splice(i, 0, w); changed(); } });
+  } else if (ds.openp) {
+    openAdd.has(ds.openp) ? openAdd.delete(ds.openp) : openAdd.add(ds.openp);
+    const box = t.closest("td").querySelector(".addp"); box.classList.toggle("open"); if (box.classList.contains("open")) box.querySelector("input").focus();
+  } else if (ds.addp) {
     const row = t.closest("tr"), a = row.querySelector("[data-a]").value, b = row.querySelector("[data-b]").value || a;
-    const w = e.trab.find(x => x.id === t.dataset.addp), add = expandRange(a, b, forW(w));
-    if (!add.length) return alert("Escolhe o primeiro e o último dia de férias (o período tem de ter pelo menos um dia de trabalho).");
-    w.dias = [...new Set([...w.dias, ...add])].sort(); changed();
-  } else if (t.dataset.folga) {
+    const w = e.trab.find(x => x.id === ds.addp), add = expandRange(a, b, forW(w));
+    if (!add.length) return toast("Escolhe o primeiro e o último dia (o período tem de ter pelo menos um dia de trabalho).", { err: true });
+    w.dias = [...new Set([...w.dias, ...add])].sort(); openAdd.delete(w.id); changed();
+    toast(`${w.nome || "Trabalhador"}: ${plural(add.length, "dia marcado", "dias marcados")}`);
+  } else if (ds.delp) {
+    const [id, a, b] = ds.delp.split("|"), w = e.trab.find(x => x.id === id), before = w.dias;
+    w.dias = w.dias.filter(d => d < a || d > b); changed();
+    toast("Período apagado", { action: "Anular", onAction: () => { w.dias = before; changed(); } });
+  } else if (ds.folga) {
     // os períodos marcados ficam iguais; os dias que contam passam a seguir as novas folgas
-    const [id, d] = t.dataset.folga.split("|"), w = e.trab.find(x => x.id === id), day = Number(d), y = String(e.ano);
+    const [id, d] = ds.folga.split("|"), w = e.trab.find(x => x.id === id), day = Number(d), y = String(e.ano);
     const old = forW(w), per = periods(daysOf(w, e, old), old), f = folgasOf(w);
     const nf = f.includes(day) ? f.filter(x => x !== day) : [...f, day];
-    if (nf.length > 4) return alert("Cada trabalhador tem de ter pelo menos 3 dias de trabalho por semana.");
+    if (nf.length > 4) return toast("Cada trabalhador tem de ter pelo menos 3 dias de trabalho por semana.", { err: true });
     w.folgas = nf;
     w.dias = [...w.dias.filter(x => !x.startsWith(y)), ...per.flatMap(p => expandRange(p.ini, p.fim, forW(w)))];
     changed();
-  } else if (t.dataset.delp) {
-    const [id, a, b] = t.dataset.delp.split("|"), w = e.trab.find(x => x.id === id);
-    w.dias = w.dias.filter(d => d < a || d > b); changed();
   }
 });
-$("#cal").addEventListener("click", ev => {
-  const c = ev.target.closest("td[data-day]"); if (!c) return;
-  const [id, d] = c.dataset.day.split("|"), w = emp().trab.find(x => x.id === id);
-  w.dias = w.dias.includes(d) ? w.dias.filter(x => x !== d) : [...w.dias, d].sort();
-  const keep = $("#cal").scrollTop; changed(); $("#cal").scrollTop = keep;
-});
 
-// mapa para imprimir: sempre atualizado, para o Ctrl+P também funcionar
+// ---- calendário: clicar ou arrastar ----
+let drag = null;
+function paintSel() {
+  const [a, b] = [drag.a, drag.b].sort();
+  $$(`#cal tr[data-w="${drag.w}"] td[data-d]`).forEach(td => {
+    const on = td.dataset.d >= a && td.dataset.d <= b && td.classList.contains("work");
+    td.classList.toggle("sel", on); td.classList.toggle("rm", on && !drag.add);
+  });
+}
+function applyRange(wid, a, b, add) {
+  const e = emp(), w = e.trab.find(x => x.id === wid); if (!w) return;
+  if (b < a) [a, b] = [b, a];
+  const days = expandRange(a, b, ctx(e).forW(w));
+  if (!days.length) return renderCalendar();
+  const set = new Set(w.dias);
+  days.forEach(d => add ? set.add(d) : set.delete(d));
+  w.dias = [...set].sort(); changed();
+  if (a !== b) toast(`${w.nome || "Trabalhador"}: ${plural(days.length, add ? "dia marcado" : "dia desmarcado", add ? "dias marcados" : "dias desmarcados")}`);
+}
+$("#cal").addEventListener("pointerdown", ev => {
+  const td = ev.target.closest("td[data-d]"); if (!td || ev.button > 0) return;
+  drag = { w: td.parentElement.dataset.w, a: td.dataset.d, b: td.dataset.d, add: !td.classList.contains("vac"), touch: ev.pointerType !== "mouse" };
+  if (!drag.touch) { ev.preventDefault(); paintSel(); }
+});
+$("#cal").addEventListener("pointermove", ev => {
+  if (!drag || drag.touch) return;
+  const td = document.elementFromPoint(ev.clientX, ev.clientY)?.closest?.("td[data-d]");
+  if (!td || td.parentElement.dataset.w !== drag.w || td.dataset.d === drag.b) return;
+  drag.b = td.dataset.d; paintSel();
+});
+window.addEventListener("pointerup", ev => {
+  if (!drag) return;
+  const d = drag; drag = null;
+  if (d.touch && ev.target.closest?.("td[data-d]")?.dataset.d !== d.a) return;  // no telemóvel, arrastar é deslizar
+  applyRange(d.w, d.a, d.b, d.add);
+});
+window.addEventListener("pointercancel", () => { if (drag) { drag = null; renderCalendar(); } });
+
+// ---- mapa para imprimir: sempre atualizado, para o Ctrl+P também funcionar ----
 function buildPrint() {
   const e = emp(), { forW } = ctx(e), c = concelho(e.concelho);
   const rows = e.trab.map(w => {
     const r = check(w, e, forW(w));
-    return `<tr><td>${esc(w.nome)}</td><td>${folgasTxt(w)}</td><td>${r.per.map(p => p.ini === p.fim ? fmtLong(p.ini) : fmtLong(p.ini) + " a " + fmtLong(p.fim)).join("; ") || "—"}</td><td>${r.used}</td></tr>`;
+    return `<tr><td>${esc(w.nome)}</td><td>${folgasTxt(w)}</td><td>${r.per.map(p => fmtRange(p.ini, p.fim)).join("; ") || "—"}</td><td>${r.used}</td></tr>`;
   }).join("");
   $("#print").innerHTML = `<h1>Mapa de Férias ${e.ano}</h1>
     <div class="meta">${esc(e.nome || "")}${e.nif ? " · NIF " + esc(e.nif) : ""}${c ? " · Concelho: " + esc(c[0]) : ""}</div>
     <table class="sum"><thead><tr><th>Trabalhador</th><th>Folgas</th><th>Períodos de férias (início a termo)</th><th>Dias de férias</th></tr></thead><tbody>${rows}</tbody></table>
     ${calendarHTML(e, false)}
-    <div class="foot"><span>Elaborado em ${fmtLong(iso(new Date()))}. Afixado nos locais de trabalho entre 15 de abril e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</span><span>O empregador: ______________________</span></div>
+    <div class="foot"><span>Elaborado em ${fmtLong(todayISO())}. Afixado nos locais de trabalho entre 15 de abril e 31 de outubro (art. 241.º, n.º 9, do Código do Trabalho).</span><span>O empregador: ______________________</span></div>
     ${tier() === "gratis" ? `<div style="margin-top:6px;color:#888">Feito com Mapa de Férias · ${CFG.SITE}</div>` : ""}`;
 }
-bind("#bPrint", "click", () => { buildPrint(); window.print(); });
+const doPrint = () => { buildPrint(); window.print(); };
+bind("#bPrint", "click", doPrint); bind("#bPrint2", "click", doPrint);
 window.addEventListener("beforeprint", buildPrint);
 
-// cópias
-bind("#bExport", "click", () => {
+// ---- cópias ----
+function exportCopy() {
   const e = emp(), blob = new Blob([JSON.stringify({ app: "mapa-ferias", v: 1, emps: S.emps }, null, 1)], { type: "application/json" });
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
-  a.download = `mapa-ferias-${(e.nome || "empresa").toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${e.ano}.json`;
+  a.download = `mapa-ferias-${norm(e.nome || "empresa").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${e.ano}.json`;
   a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-});
+  toast("Cópia guardada na pasta de transferências");
+}
+bind("#bExport", "click", exportCopy); bind("#bExport2", "click", exportCopy);
+bind("#bImport", "click", () => $("#fImport").click());
 bind("#fImport", "change", async ev => {
   const f = ev.target.files[0]; if (!f) return;
   try {
     const j = JSON.parse(await f.text());
     if (j.app !== "mapa-ferias" || !Array.isArray(j.emps) || !j.emps.length) throw 0;
     const emps = j.emps.slice(0, maxEmps() === Infinity ? j.emps.length : 1);
-    if (emps.length < j.emps.length) alert("A cópia tem várias empresas: na versão grátis abre só a primeira.");
-    S.emps = emps; S.cur = emps[0].id; S.demo = false; render();
-  } catch (_) { alert("Este ficheiro não é uma cópia do Mapa de Férias."); }
+    S.emps = emps; S.cur = emps[0].id; S.demo = false; S.emps.forEach(normalize); openAdd.clear(); render();
+    toast(emps.length < j.emps.length ? "A cópia tem várias empresas: na versão grátis abre só a primeira." : "Cópia aberta");
+  } catch (_) { toast("Este ficheiro não é uma cópia do Mapa de Férias.", { err: true }); }
   ev.target.value = "";
 });
 
-// licença (Gumroad)
+// ---- licença (Gumroad) ----
 async function verify(key) {
   if (!CFG.GUMROAD_PRODUCT_ID) return { ok: false, msg: "As licenças ainda não estão à venda." };
   try {
@@ -572,7 +955,7 @@ bind("#bLic", "click", openLic);
 bind("#bPayLic", "click", () => { $("#dPay").close(); openLic(); });
 bind("#bLicOk", "click", async () => {
   const k = $("#iLic").value.trim(); if (!k) return;
-  $("#licMsg").textContent = "A verificar…";
+  $("#licMsg").style.color = "var(--muted)"; $("#licMsg").textContent = "A verificar…";
   const r = await verify(k);
   $("#licMsg").textContent = r.ok ? "Licença ativa. Obrigado!" : r.msg;
   $("#licMsg").style.color = r.ok ? "var(--ok)" : "var(--bad)";
@@ -581,7 +964,96 @@ bind("#bLicOk", "click", async () => {
 // revalidar uma vez por semana; sem internet mantém a licença
 if (S.lic?.ok && Date.now() - (S.lic.at || 0) > 7 * 864e5) verify(S.lic.key).then(r => { if (r.ok || !r.net) { S.lic = r.ok ? r : null; render(); } });
 
+// ---- pedidos de férias por WhatsApp (sem servidor: o pedido viaja dentro do link) ----
+bind("#bPedidos", "click", () => {
+  const e = emp(), link = base() + "#pedir=" + enc({ e: e.nome, c: e.concelho, a: e.ano });
+  $("#iLink").value = link;
+  $("#aWaLink").href = "https://wa.me/?text=" + encodeURIComponent(`Olá! Para pedirem as vossas férias de ${e.ano}, escolham as datas aqui e enviem-me o pedido: ${link}`);
+  dlg("#dLink");
+});
+bind("#bCopyLink", "click", () => navigator.clipboard.writeText($("#iLink").value).then(() => toast("Link copiado"), () => $("#iLink").select()));
+
+let PV = null;
+function showPedir(o) {
+  const ano = [2026, 2027, 2028].includes(Number(o.a)) ? Number(o.a) : emp().ano;
+  PV = { empresa: String(o.e || "").slice(0, 80), conc: concelho(String(o.c || "")) ? String(o.c) : "", ano, pers: [["", ""]] };
+  document.body.classList.add("pedir");
+  $("#pvTitle").textContent = `Pedido de férias ${ano}`;
+  $("#pvSub").textContent = (PV.empresa ? `Para ${PV.empresa}. ` : "") + "Escolhe as datas e envia o pedido pelo WhatsApp.";
+  renderPedir(); window.scrollTo(0, 0);
+}
+function renderPedir() {
+  $("#pvPers").innerHTML = PV.pers.map(([a, b], i) => `<div class="per-row" data-i="${i}">
+    <div class="field"><label>${PV.pers.length > 1 ? `Período ${i + 1}: primeiro dia` : "Primeiro dia de férias"}</label><input type="date" data-k="0" value="${a}" min="${PV.ano}-01-01" max="${PV.ano}-12-31"></div>
+    <div class="field"><label>Último dia</label><input type="date" data-k="1" value="${b}" min="${PV.ano}-01-01" max="${PV.ano}-12-31"></div></div>`).join("");
+  $("#pvAdd").style.display = PV.pers.length >= 4 ? "none" : "";
+  pedirEstimate();
+}
+function pedirEstimate() {
+  const isW = ctx({ ano: PV.ano, concelho: PV.conc, municipal: true }).forW({});
+  const valid = PV.pers.filter(([a, b]) => a && b && a <= b), n = valid.reduce((s, [a, b]) => s + expandRange(a, b, isW).length, 0);
+  $("#pvEst").innerHTML = valid.length
+    ? `${ic("calendar")}<span><b>${plural(n, "dia útil", "dias úteis")}</b> de férias, sem contar fins de semana e feriados${PV.conc ? " de " + esc(PV.conc) : ""}. A empresa confirma a contagem final.</span>`
+    : `${ic("calendar")}<span>Escolhe o primeiro e o último dia de férias.</span>`;
+}
+$("#pvPers").addEventListener("input", ev => {
+  const row = ev.target.closest(".per-row"); if (!row) return;
+  const i = Number(row.dataset.i), k = Number(ev.target.dataset.k);
+  PV.pers[i][k] = ev.target.value;
+  if (k === 0 && ev.target.value) { const b = row.querySelector('[data-k="1"]'); b.min = ev.target.value; if (!b.value || b.value < ev.target.value) { b.value = ev.target.value; PV.pers[i][1] = b.value; } }
+  pedirEstimate();
+});
+bind("#pvAdd", "click", () => { PV.pers.push(["", ""]); renderPedir(); });
+function pedirMessage() {
+  const nome = $("#pvNome").value.trim().slice(0, 80);
+  const pers = PV.pers.filter(([a, b]) => a && b).map(([a, b]) => a <= b ? [a, b] : [b, a]);
+  if (!nome) { toast("Escreve o teu nome.", { err: true }); $("#pvNome").focus(); return null; }
+  if (!pers.length) { toast("Escolhe pelo menos um período de férias.", { err: true }); return null; }
+  const link = base() + "#aceitar=" + enc({ n: nome, p: pers, a: PV.ano });
+  return `Olá! Pedido de férias de ${nome}${PV.empresa ? " (" + PV.empresa + ")" : ""}:\n` +
+    pers.map(([a, b]) => `• ${fmtHuman(a, b)} de ${PV.ano}`).join("\n") + `\n\nPara aceitar e marcar no Mapa de Férias: ${link}`;
+}
+bind("#pvSend", "click", () => { const m = pedirMessage(); if (m) window.open("https://wa.me/?text=" + encodeURIComponent(m), "_blank", "noopener"); });
+bind("#pvCopy", "click", () => { const m = pedirMessage(); if (m) navigator.clipboard.writeText(m).then(() => toast("Mensagem copiada"), () => toast("Não foi possível copiar.", { err: true })); });
+
+let AC = null;
+const clearHash = () => history.replaceState(null, "", location.pathname + location.search);
+function showAceitar(o) {
+  const okDate = s => typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(D(s));
+  const nome = String(o.n || "").trim().slice(0, 80);
+  const pers = (Array.isArray(o.p) ? o.p : []).slice(0, 6).filter(p => Array.isArray(p) && okDate(p[0]) && okDate(p[1]));
+  if (!nome || !pers.length) throw 0;
+  AC = { nome, pers };
+  const e = emp(), match = e.trab.find(w => norm(w.nome) === norm(nome));
+  $("#acTxt").innerHTML = `<b>${esc(nome)}</b> pede férias: ${pers.map(([a, b]) => fmtRange(a, b)).join("; ")}.`;
+  $("#acW").innerHTML = `<option value="">Novo trabalhador: ${esc(nome)}</option>` + e.trab.map(w => `<option value="${w.id}"${match === w ? " selected" : ""}>${esc(w.nome || "Sem nome")}</option>`).join("");
+  $("#acEmp").textContent = e.nome ? `Empresa: ${e.nome}` : "";
+  dlg("#dAceitar");
+}
+bind("#acYes", "click", () => {
+  const e = emp(); let w = e.trab.find(x => x.id === $("#acW").value);
+  $("#dAceitar").close(); clearHash();
+  if (!w) { if (!addWorker(AC.nome)) return; w = e.trab[e.trab.length - 1]; }
+  const isW = ctx(e).forW(w), add = AC.pers.flatMap(([a, b]) => expandRange(a, b, isW));
+  w.dias = [...new Set([...w.dias, ...add])].sort(); changed();
+  toast(`Férias de ${w.nome} marcadas: ${plural(add.length, "dia")}`);
+  $("#s-team").scrollIntoView({ behavior: "smooth" });
+});
+bind("#acNo", "click", () => { $("#dAceitar").close(); clearHash(); });
+
+function route() {
+  const h = location.hash;
+  if (h.startsWith("#pedir=")) {
+    try { showPedir(dec(h.slice(7))); } catch (_) { toast("Este link de pedido não é válido.", { err: true }); }
+  } else if (h.startsWith("#aceitar=")) {
+    document.body.classList.remove("pedir");
+    try { showAceitar(dec(h.slice(9))); } catch (_) { toast("Este pedido de férias não é válido.", { err: true }); clearHash(); }
+  } else document.body.classList.remove("pedir");
+}
+window.addEventListener("hashchange", route);
+
 render();
+route();
 </script>
 </body>
 </html>
