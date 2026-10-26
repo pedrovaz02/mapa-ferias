@@ -439,7 +439,7 @@ body.pedir #pedirView{display:block}
     <details><summary>As férias podem ser repartidas?</summary><p>Sim, por acordo, desde que haja pelo menos um período de 10 dias úteis seguidos (art. 241.º, n.º 8). A app avisa quando isso falta.</p></details>
     <details><summary>E se não houver acordo?</summary><p>O empregador marca as férias, mas só entre 1 de maio e 31 de outubro (art. 241.º, n.º 3), salvo regras do contrato coletivo.</p></details>
     <details><summary>Como funcionam os pedidos por WhatsApp?</summary><p>Em "Pedidos por WhatsApp" copias um link e mandas à equipa. Cada pessoa escolhe as datas no telemóvel e devolve-te o pedido por WhatsApp. Tocas no link do pedido, confirmas, e as férias ficam marcadas aqui. Não há contas nem servidores pelo meio.</p></details>
-    <details><summary>O feriado municipal é obrigatório?</summary><p>Só quando está no contrato, no contrato coletivo ou é costume na empresa. Por isso podes ligá-lo ou desligá-lo. As datas vêm de fontes públicas e podem mudar: confirma a do teu concelho junto da câmara.</p></details>
+    <details><summary>O feriado municipal é obrigatório?</summary><p>Só quando está no contrato, no contrato coletivo ou é costume na empresa. Por isso podes ligá-lo ou desligá-lo. As datas vêm de fontes públicas e podem mudar: confirma a do teu concelho junto da câmara. <a href="feriado-municipal/">Vê o feriado municipal de 2027 de cada concelho</a>.</p></details>
     <details><summary>Onde ficam os dados?</summary><p>Só no teu computador, neste browser. Nada é enviado para servidores. Usa "Guardar cópia" para teres um ficheiro de segurança ou para passares para outro computador.</p></details>
   </section>
 </main>
@@ -447,7 +447,7 @@ body.pedir #pedirView{display:block}
 <div id="print"></div>
 <footer>
   <span>Mapa de Férias · feito em Portugal · não substitui aconselhamento jurídico</span>
-  <nav><a href="#precos">Preços</a><a href="#perguntas">Perguntas</a><a href="https://pedrovaz02.github.io/pontes-2027/">Planeador de Pontes 2027</a></nav>
+  <nav><a href="#precos">Preços</a><a href="#perguntas">Perguntas</a><a href="feriado-municipal/">Feriados municipais 2027</a><a href="https://pedrovaz02.github.io/pontes-2027/">Planeador de Pontes 2027</a></nav>
 </footer>
 </div>
 
@@ -569,6 +569,8 @@ function demo() {
 let S;
 try { S = JSON.parse(localStorage.getItem(KEY)); } catch (_) { S = null; }
 if (!S || !S.emps || !S.emps.length) S = demo();
+const pedido = new URLSearchParams(location.search).get("concelho");  // vindo de uma página de concelho
+if (pedido && S.demo) { const c = CONCELHOS.find(x => x[0].toLowerCase() === pedido.toLowerCase()); if (c) S.emps[0].concelho = c[0]; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) {} };
 const emp = () => S.emps.find(e => e.id === S.cur) || S.emps[0];
 const tier = () => S.lic && S.lic.ok ? S.lic.tier : "gratis";
