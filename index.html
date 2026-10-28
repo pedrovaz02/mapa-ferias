@@ -469,7 +469,7 @@ body.pedir #pedirView{display:block}
 </dialog>
 <dialog id="dLic">
   <h2>Ativar licença</h2>
-  <p>Introduza a chave de licença recebida por email após a compra.</p>
+  <p>Introduza a chave de licença recebida por email após a compra, ou o código de piloto que lhe foi enviado.</p>
   <input id="iLic" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX" autocomplete="off">
   <div class="msg" id="licMsg"></div>
   <div class="dlg-actions"><button class="btn ghost" data-close>Fechar</button><button class="btn" id="bLicOk">Ativar</button></div>
@@ -494,7 +494,9 @@ const CFG = {
   FREE_WORKERS: 3,
   GUMROAD_PRODUCT_ID: "9lByk0guLmgjqdElLBJwyw==",  // produto "Mapa de Férias online: licença anual"
   BUY_URL: "https://vazpedro.gumroad.com/l/mapa-ferias-licenca",
-  SITE: "pedrovaz02.github.io/mapa-ferias"
+  SITE: "pedrovaz02.github.io/mapa-ferias",
+  // códigos de piloto (gabinetes e rede próxima): só ficam aqui os SHA-256; os códigos estão fora do repositório
+  PILOTO: { ate: "2027-04-15", hashes: {"def2eb6285ee028a7b647694333d8ce663f298798153bf2d03e9d8f39ea0b4ac":"contabilista","654f9ee7acabc27c835fc5d8f61d2e4c5510703b70e937d82d7da7d40f24da25":"contabilista","fc0fccff4ec9c9ec4f6cd2d4adfeefcf0a43bc6f3a17490244f4bc62815318a1":"contabilista","5020ce5e2400af7a3beb1602e100f8c8a06fbdf097555e3e4e14bd5e03a4b344":"contabilista","e493cdd2c89b2d9c32b2d0060cb4892a62d2c96d26c9d26059588835e63e00e9":"contabilista","b5c245f829f2a1caee6cf456b873190cb8e7957cdb1c5d5dbe2cf8ea4ec1c153":"contabilista","9d4d5cc00a9fd6dc40066ef9b33a2517a3c2cd64ff54250e46464b1a7e644e4a":"contabilista","b51a6c00c4f76b78d4935c7b770b0624d6d97efb4bdb40b1199df27eb45c2f84":"contabilista","aaf9bbf7d88ac612a2e065f09c4c8f1ab86463b727c30592f4cdfbeed16d90e6":"contabilista","95179a45ab930d64ad804dd68cff64fed3bcc6d2961bf360561e94a5b21583e0":"contabilista","facf37d6add016d46e1c7219f5b17d80e9ee1069a521dd3fad60a6866c1a6e0c":"empresa","5d550f0ba4ffd7a6ebc2458f70088d7b6310bc26ffb80f35abe9567da7eb1595":"empresa","5c655ea2a437b6400b706806f19dc5db761736a0b2e48d41e43214d6b93abd24":"empresa"} }
 };
 const KEY = "mapaFerias.v1";
 const FOLGAS_PADRAO = [6, 0];  // sábado e domingo
@@ -576,7 +578,8 @@ const pedido = new URLSearchParams(location.search).get("concelho");  // vindo d
 if (pedido && S.demo) { const c = CONCELHOS.find(x => x[0].toLowerCase() === pedido.toLowerCase()); if (c) S.emps[0].concelho = c[0]; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) {} };
 const emp = () => S.emps.find(e => e.id === S.cur) || S.emps[0];
-const tier = () => S.lic && S.lic.ok ? S.lic.tier : "gratis";
+const pilotoAtivo = () => !S.lic?.piloto || todayISO() <= S.lic.ate;
+const tier = () => S.lic && S.lic.ok && pilotoAtivo() ? S.lic.tier : "gratis";
 const maxWorkers = () => tier() === "gratis" ? CFG.FREE_WORKERS : Infinity;
 const maxEmps = () => tier() === "contabilista" ? Infinity : 1;
 
@@ -764,6 +767,7 @@ function renderCalendar() {
 function renderLic() {
   const t = tier();
   $("#licState").textContent = t === "gratis" ? `Versão gratuita: 1 empresa, até ${CFG.FREE_WORKERS} trabalhadores.`
+    : S.lic.piloto ? `Código de piloto ativo (plano ${t === "contabilista" ? "Contabilista" : "Empresa"}) até ${fmtLong(S.lic.ate)}.`
     : `Licença ${t === "contabilista" ? "Contabilista" : "Empresa"} ativa${S.lic.email ? " (" + S.lic.email + ")" : ""}.`;
   $$(".buy").forEach(a => {
     if (CFG.BUY_URL) { a.href = CFG.BUY_URL; a.target = "_blank"; a.rel = "noopener"; }  // o plano escolhe-se na página do Gumroad
@@ -955,19 +959,28 @@ async function verify(key) {
     return { ok: true, key, tier: /contabil/i.test(p.variants || "") ? "contabilista" : "empresa", email: p.email, at: Date.now() };
   } catch (_) { return { ok: false, net: true, msg: "Sem ligação à internet. Tente novamente." }; }
 }
+async function piloto(code) {  // códigos de piloto: grátis até à data de CFG.PILOTO.ate, sem passar pelo Gumroad
+  const c = code.trim().toUpperCase();
+  if (!/^(GAB|PIL)-/.test(c) || !crypto?.subtle) return null;
+  const h = [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(c)))].map(b => b.toString(16).padStart(2, "0")).join("");
+  const t = CFG.PILOTO.hashes[h];
+  if (!t) return { ok: false, msg: "Código de piloto não reconhecido." };
+  if (todayISO() > CFG.PILOTO.ate) return { ok: false, msg: "Este código de piloto já expirou." };
+  return { ok: true, key: c, tier: t, piloto: true, ate: CFG.PILOTO.ate, at: Date.now() };
+}
 const openLic = () => { $("#iLic").value = S.lic?.key || ""; $("#licMsg").textContent = ""; dlg("#dLic"); };
 bind("#bLic", "click", openLic);
 bind("#bPayLic", "click", () => { $("#dPay").close(); openLic(); });
 bind("#bLicOk", "click", async () => {
   const k = $("#iLic").value.trim(); if (!k) return;
   $("#licMsg").style.color = "var(--muted)"; $("#licMsg").textContent = "A verificar…";
-  const r = await verify(k);
-  $("#licMsg").textContent = r.ok ? "Licença ativa. Obrigado!" : r.msg;
+  const r = (await piloto(k)) || await verify(k);
+  $("#licMsg").textContent = r.ok ? (r.piloto ? `Código de piloto ativo até ${fmtLong(r.ate)}.` : "Licença ativa. Obrigado!") : r.msg;
   $("#licMsg").style.color = r.ok ? "var(--ok)" : "var(--bad)";
   if (r.ok) { S.lic = r; render(); setTimeout(() => $("#dLic").close(), 900); }
 });
 // revalidar uma vez por semana; sem internet mantém a licença
-if (S.lic?.ok && Date.now() - (S.lic.at || 0) > 7 * 864e5) verify(S.lic.key).then(r => { if (r.ok || !r.net) { S.lic = r.ok ? r : null; render(); } });
+if (S.lic?.ok && !S.lic.piloto && Date.now() - (S.lic.at || 0) > 7 * 864e5) verify(S.lic.key).then(r => { if (r.ok || !r.net) { S.lic = r.ok ? r : null; render(); } });
 
 // ---- pedidos de férias por WhatsApp (sem servidor: o pedido viaja dentro do link) ----
 bind("#bPedidos", "click", () => {
